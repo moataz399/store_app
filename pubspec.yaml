@@ -13,11 +13,25 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
-  firebase_core: ^2.31.0
 
-  connectivity_plus: ^6.0.3
+  #core
+  flutter_native_splash: ^2.4.0
+  connectivity_plus: ^5.0.2
   flutter_dotenv: ^5.1.0
   flutter_screenutil:
+
+
+  #firebase
+  firebase_core: ^2.31.0
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.jpg"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icons/play_store_512.png"
+
 
 
 dev_dependencies:
@@ -36,5 +50,7 @@ flutter:
   assets:
     - .env.dev
     - .env.prod
+    - assets/images/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
