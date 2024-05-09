@@ -4,6 +4,7 @@ import 'package:store_app/core/style/theme/color_extension.dart';
 
 extension Navigation on BuildContext {
 
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
 
   MyColors get color => Theme.of(this).extension<MyColors>()!;
 

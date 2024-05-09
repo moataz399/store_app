@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helpers/extensions.dart';
-import 'package:store_app/core/style/colors/colors_dark.dart';
-import 'package:store_app/core/style/theme/text_styles.dart';
+import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
@@ -15,7 +14,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
-  final String? Function(String?) validator; // Change here
+  final String? Function(String?) validator;
 
   const AppTextFormField({
     super.key,
@@ -42,16 +41,16 @@ class AppTextFormField extends StatelessWidget {
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
-              borderSide:  BorderSide(
-                color: ColorsDark.blueDark,
+              borderSide: BorderSide(
+                color: context.color.textFormBorder!,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(16.0),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: ColorsDark.mainColor,
+              borderSide: BorderSide(
+                color: context.color.textFormBorder!,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(16.0),
@@ -70,17 +69,24 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(16.0),
         ),
-        hintStyle: hintStyle ?? TextStyles.font24BlackBold,
+        hintStyle: hintStyle ??
+            context.textStyle.copyWith(
+              fontSize: 14.sp,
+              color: context.color.textColor,
+              fontWeight: FontWeightHelper.regular,
+            ),
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? ColorsDark.mainColor,
-        filled: true,
+        // fillColor: backgroundColor ?? Colors.grey,
+        filled: false,
       ),
       obscureText: isObscureText ?? false,
-      style: TextStyles.font24BlackBold,
-      validator: validator
-
-
+      style: context.textStyle.copyWith(
+        fontSize: 14.sp,
+        color: Colors.blueAccent,
+        fontWeight: FontWeightHelper.medium,
+      ),
+      validator: validator,
     );
   }
 }

@@ -17,6 +17,6 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).then((_) {
-    runApp( MyApp(appRouter: AppRouter()));
+    runApp(MyApp(appRouter: AppRouter()));
   });
 }

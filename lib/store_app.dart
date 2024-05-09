@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             designSize: const Size(375, 812),
             minTextAdapt: true,
             child: MaterialApp(
-              locale: const Locale("ar"),
+              locale: const Locale('en'),
               supportedLocales: AppLocalizationsSetup.supportedLocales,
               localizationsDelegates:
                   AppLocalizationsSetup.localizationsDelegates,
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 );
               },
               theme: themeDark(),
-              initialRoute: Routes.onBoardingScreen,
+              initialRoute: Routes.loginScreen,
               onGenerateRoute: appRouter.generateRoute,
             ),
           );
