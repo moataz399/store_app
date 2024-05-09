@@ -7,36 +7,38 @@ import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/auth/presentation/widgets/auth_title_info.dart';
-
 import 'package:store_app/features/auth/presentation/widgets/dart_and_lang_buttons.dart';
-import 'package:store_app/features/auth/presentation/widgets/login_button.dart';
-import 'package:store_app/features/auth/presentation/widgets/login_text_form.dart';
+import 'package:store_app/features/auth/presentation/widgets/register_button.dart';
+import 'package:store_app/features/auth/presentation/widgets/register_text_form.dart';
+import 'package:store_app/features/auth/presentation/widgets/user_avatar_image.dart';
 
-class LoginBody extends StatelessWidget {
-  const LoginBody({super.key});
+class RegisterBody extends StatelessWidget {
+  const RegisterBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         child: Column(
           children: [
             const DarkAndLangButtons(),
             verticalSpace(50),
             AuthTitleInfo(
-              title: context.translate(LangKeys.login),
-              description: context.translate(LangKeys.welcome),
+              title: context.translate(LangKeys.signUp),
+              description: context.translate(LangKeys.signUpWelcome),
             ),
             verticalSpace(30),
-            const LoginTextForm(),
+            const UserAvatarImage(),
             verticalSpace(30),
-            const LoginButton(),
-            verticalSpace(30),
+            const RegisterTextForm(),
+            verticalSpace(20),
+            const RegisterButton(),
+            verticalSpace(20),
             CustomFadeInDown(
               duration: 400,
               child: TextApp(
-                text: context.translate(LangKeys.createAccount),
+                text: context.translate(LangKeys.youHaveAccount),
                 theme: context.textStyle.copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeightHelper.bold,

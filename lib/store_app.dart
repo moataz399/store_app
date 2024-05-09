@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, __) {
         if (value) {
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
                 );
               },
               theme: themeDark(),
-              initialRoute: Routes.loginScreen,
+              initialRoute: Routes.registerScreen,
               onGenerateRoute: appRouter.generateRoute,
             ),
           );

@@ -8,8 +8,8 @@ import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/widgets/custom_linear_button.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 
-class LoginButton extends StatelessWidget {
-  const LoginButton({super.key});
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,14 @@ class LoginButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 50.h,
         onPressed: () {
-          context.pushNamed(Routes.registerScreen);
+          context.pushNamed(Routes.loginScreen);
         },
         child: TextApp(
-          text: context.translate(LangKeys.login),
+          text: context.translate(LangKeys.signUp),
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeightHelper.bold,
-          ),
-        ),
-      ),
-    );
+          ),),
+      ),);
   }
 }
