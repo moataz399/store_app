@@ -5,9 +5,8 @@ import 'package:store_app/core/app/env.variables.dart';
 import 'package:store_app/core/language/app_localizations_setup.dart';
 import 'package:store_app/core/routing/AppRouter.dart';
 import 'package:store_app/core/routing/routes.dart';
+import 'package:store_app/core/style/theme/app_theme.dart';
 import 'package:store_app/core/widgets/no_network_screen.dart';
-
-import 'core/style/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({required this.appRouter, super.key});
@@ -17,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
+
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, __) {
         if (value) {
@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
               builder: (context, widget) {
                 return GestureDetector(
-                 onTap: (){
-                   FocusManager.instance.primaryFocus?.unfocus();
-                 },
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   child: Scaffold(
                     body: Builder(
                       builder: (context) {

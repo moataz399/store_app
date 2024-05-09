@@ -1,5 +1,3 @@
-
-
 class FontFamilyHelper {
   const FontFamilyHelper._();
 
@@ -7,5 +5,12 @@ class FontFamilyHelper {
 
   static const String poppinsEnglish = 'Poppins';
 
-
+  static String getLocalizedFontFamily() {
+    const currentLang = 'ar';
+    if (currentLang == 'ar') {
+      return cairoArabic;
+    } else {
+      return poppinsEnglish;
+    }
+  }
 }

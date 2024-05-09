@@ -12,7 +12,7 @@ class TestScreen2 extends StatelessWidget {
       body: Column(
         children: [
           GestureDetector(
-            onTap: () => context.pushNamed(Routes.homeScreen),
+            onTap: () => context.pushNamed(Routes.onBoardingScreen),
             child: Center(
               child: Text(
                 'Test',

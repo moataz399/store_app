@@ -20,6 +20,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   flutter_screenutil:
   flutter_localization: ^0.2.0
+  animate_do: ^3.3.4
 
 
   #firebase
@@ -51,8 +52,11 @@ flutter:
   assets:
     - .env.dev
     - .env.prod
-    - assets/images/
+    - assets/images/admin/
+    - assets/images/core/
+    - assets/images/customer/
     - assets/icons/
+    - assets/svg/
     - lang/ar.json
     - lang/en.json
   fonts:

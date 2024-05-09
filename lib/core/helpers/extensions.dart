@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/language/app_localizations.dart';
+import 'package:store_app/core/style/theme/color_extension.dart';
 
 extension Navigation on BuildContext {
+
+
+  MyColors get color => Theme.of(this).extension<MyColors>()!;
+
   //Language
   String translate(String langKey) {
     return AppLocalizations.of(this)!.translate(langKey).toString();
@@ -17,7 +22,7 @@ extension Navigation on BuildContext {
   }
 
   Future<dynamic> pushNamedAndRemoveUntil(String routeName,
-      {Object? arguments, required RoutePredicate predicate}) {
+      {required RoutePredicate predicate, Object? arguments,}) {
     return Navigator.of(this)
         .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:store_app/core/style/colors/colors_dark.dart';
 import 'package:store_app/core/style/colors/colors_light.dart';
+import 'package:store_app/core/style/fonts/font_family_helper.dart';
 
 import 'package:store_app/core/style/theme/color_extension.dart';
 
@@ -12,11 +14,11 @@ ThemeData themeDark() {
       MyColors.dark, // MyAssets.dark
     ],
     useMaterial3: true,
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       displaySmall: TextStyle(
         fontSize: 14,
-        //color: ColorsDark.white,
-        //fontFamily: FontFamilyHelper.geLocalozedFontFamily(),
+        color: ColorsDark.white,
+        fontFamily: FontFamilyHelper.getLocalizedFontFamily(),
       ),
     ),
   );
@@ -32,8 +34,8 @@ ThemeData themeLight() {
     textTheme: TextTheme(
       displaySmall: TextStyle(
         fontSize: 14,
-        // color: ColorsLight.black,
-        // fontFamily: FontFamilyHelper.geLocalozedFontFamily(),
+        color: ColorsLight.black,
+        fontFamily: FontFamilyHelper.getLocalizedFontFamily(),
       ),
     ),
   );
