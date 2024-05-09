@@ -19,6 +19,7 @@ dependencies:
   connectivity_plus: ^5.0.2
   flutter_dotenv: ^5.1.0
   flutter_screenutil:
+  flutter_localization: ^0.2.0
 
 
   #firebase
@@ -52,5 +53,25 @@ flutter:
     - .env.prod
     - assets/images/
     - assets/icons/
-  #   - images/a_dot_ham.jpeg
+    - lang/ar.json
+    - lang/en.json
+  fonts:
+    # Arabic Font
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/arabic/cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/arabic/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/arabic/cairo/Cairo-Regular.ttf
+          weight: 400
+    # English Font
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/english/poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/english/poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/english/poppins/Poppins-Regular.ttf
+          weight: 400
 
