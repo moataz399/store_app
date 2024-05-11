@@ -3,9 +3,7 @@ import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/features/auth/presentation/screen/login_screen.dart';
 import 'package:store_app/features/auth/presentation/screen/register_screen.dart';
 
-import 'package:store_app/features/testScreen.dart';
 
-import 'package:store_app/features/testScreen2.dart';
 
 class AppRouter {
   AppRouter();
@@ -14,14 +12,6 @@ class AppRouter {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-      case Routes.onBoardingScreen:
-        return MaterialPageRoute(
-          builder: (_) => const TestScreen(),
-        );
-      case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => const TestScreen2(),
-        );
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),

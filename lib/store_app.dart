@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/app/app_cubit/app_cubit.dart';
 import 'package:store_app/core/app/connectivity_controller.dart';
 import 'package:store_app/core/app/env.variables.dart';
+import 'package:store_app/core/di/dependency_injection.dart';
 import 'package:store_app/core/language/app_localizations_setup.dart';
 import 'package:store_app/core/routing/AppRouter.dart';
 import 'package:store_app/core/routing/routes.dart';
+import 'package:store_app/core/services/shared_pref/pref_keys.dart';
 import 'package:store_app/core/style/theme/app_theme.dart';
 import 'package:store_app/core/widgets/no_network_screen.dart';
+
+import 'core/services/shared_pref/shared_pref.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({required this.appRouter, super.key});
@@ -19,35 +25,49 @@ class MyApp extends StatelessWidget {
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, __) {
         if (value) {
-          return ScreenUtilInit(
-            designSize: const Size(375, 812),
-            minTextAdapt: true,
-            child: MaterialApp(
-              locale: const Locale('en'),
-              supportedLocales: AppLocalizationsSetup.supportedLocales,
-              localizationsDelegates:
-                  AppLocalizationsSetup.localizationsDelegates,
-              localeResolutionCallback:
-                  AppLocalizationsSetup.localeResolutionCallback,
-              debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
-              builder: (context, widget) {
-                return GestureDetector(
-                  onTap: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                  },
-                  child: Scaffold(
-                    body: Builder(
-                      builder: (context) {
-                        ConnectivityController.instance.init();
-                        return widget!;
-                      },
-                    ),
-                  ),
-                );
-              },
-              theme: themeDark(),
-              initialRoute: Routes.registerScreen,
-              onGenerateRoute: appRouter.generateRoute,
+          return BlocProvider(
+            create: (context) => getIt<AppCubit>()
+              ..changeAppThemeMode(
+                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode))
+              ..getSavedLanguage(),
+            child: ScreenUtilInit(
+              designSize: const Size(375, 812),
+              minTextAdapt: true,
+              child: BlocBuilder<AppCubit, AppState>(
+                buildWhen: (previous, current) {
+                  return previous != current;
+                },
+                builder: (context, state) {
+                  final cubit = context.read<AppCubit>();
+                  return MaterialApp(
+                    theme: cubit.isDark ? themeDark() : themeLight(),
+                    locale: Locale(cubit.currentLangCode),
+                    supportedLocales: AppLocalizationsSetup.supportedLocales,
+                    localizationsDelegates:
+                        AppLocalizationsSetup.localizationsDelegates,
+                    localeResolutionCallback:
+                        AppLocalizationsSetup.localeResolutionCallback,
+                    debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
+                    builder: (context, widget) {
+                      return GestureDetector(
+                        onTap: () {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
+                        child: Scaffold(
+                          body: Builder(
+                            builder: (context) {
+                              ConnectivityController.instance.init();
+                              return widget!;
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                    initialRoute: Routes.registerScreen,
+                    onGenerateRoute: appRouter.generateRoute,
+                  );
+                },
+              ),
             ),
           );
         } else {

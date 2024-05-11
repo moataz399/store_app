@@ -5,9 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/app/env.variables.dart';
 import 'package:store_app/core/helpers/MyBlocObserver.dart';
 import 'package:store_app/core/routing/AppRouter.dart';
+import 'package:store_app/core/services/shared_pref/shared_pref.dart';
 
 import 'package:store_app/firebase_options.dart';
 import 'package:store_app/store_app.dart';
+
+import 'core/di/dependency_injection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +19,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  await setUpGetIt();
+  await SharedPref().instantiatePreferences();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).then((_) {
