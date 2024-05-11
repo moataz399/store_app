@@ -25,6 +25,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   shared_preferences: ^2.2.3
   freezed_annotation: ^2.4.1
+  json_annotation: ^4.9.0
 
   #api
   dio: ^5.4.3+1
