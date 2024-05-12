@@ -19,7 +19,6 @@ class RegisterButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 50.h,
         onPressed: () {
-          context.pushNamed(Routes.loginScreen);
         },
         child: TextApp(
           text: context.translate(LangKeys.signUp),

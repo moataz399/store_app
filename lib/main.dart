@@ -19,8 +19,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await setUpGetIt();
+
+
   await SharedPref().instantiatePreferences();
+  await setUpGetIt();
+
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).then((_) {
