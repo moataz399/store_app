@@ -1,9 +1,32 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/app/env.variables.dart';
+import 'package:store_app/core/helpers/MyBlocObserver.dart';
+import 'package:store_app/core/routing/AppRouter.dart';
+import 'package:store_app/core/services/shared_pref/shared_pref.dart';
 
-import 'store_app.dart';
+import 'package:store_app/firebase_options.dart';
+import 'package:store_app/store_app.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'core/di/dependency_injection.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  await EnvVariable.instance.init(envType: EnvTypeEnum.dev);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+
+  await SharedPref().instantiatePreferences();
+  await setUpGetIt();
+
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
+  ).then((_) {
+    runApp(MyApp(appRouter: AppRouter()));
+  });
 }
-
-

@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/di/dependency_injection.dart';
+import 'package:store_app/core/routing/routes.dart';
+import 'package:store_app/features/admin/home_admin_screen.dart';
+import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:store_app/features/auth/presentation/screen/login_screen.dart';
+import 'package:store_app/features/auth/presentation/screen/register_screen.dart';
+import 'package:store_app/features/client/home_client_screen.dart';
+
+class AppRouter {
+  AppRouter();
+
+  Route? generateRoute(RouteSettings settings) {
+    final arguments = settings.arguments;
+
+    switch (settings.name) {
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<AuthBloc>(),
+            child: const LoginScreen(),
+          ),
+        );
+      case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (_) => const RegisterScreen(),
+        );
+      case Routes.homeAdminScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeAdminScreen(),
+        );case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeCustomerScreen(),
+        );
+
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('NO route defined to ${settings.name}'),
+            ),
+          ),
+        );
+    }
+  }
+}
