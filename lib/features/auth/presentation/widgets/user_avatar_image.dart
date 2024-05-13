@@ -11,7 +11,7 @@ class UserAvatarImage extends StatelessWidget {
     return CustomFadeInDown(
         child: InkWell(
           onTap: () {
-            PickImageUtils().pickImage();
+
           },
           child: CircleAvatar(
             radius: 38.r,

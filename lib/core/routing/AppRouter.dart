@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store_app/core/di/dependency_injection.dart';
 import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/features/admin/home_admin_screen.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:store_app/features/auth/presentation/screen/login_screen.dart';
-import 'package:store_app/features/auth/presentation/screen/register_screen.dart';
+import 'package:store_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:store_app/features/auth/presentation/screens/register_screen.dart';
 import 'package:store_app/features/client/home_client_screen.dart';
 
 class AppRouter {
@@ -24,12 +25,18 @@ class AppRouter {
         );
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (_) => const RegisterScreen(),
+          builder: (_) => MultiBlocProvider(providers: [
+            // BlocProvider(
+            //   create: (context) => getIt<AuthBloc>(),
+            // ),
+            BlocProvider(create: (context) => getIt<UploadImageCubit>())
+          ], child: const RegisterScreen()),
         );
       case Routes.homeAdminScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeAdminScreen(),
-        );case Routes.homeScreen:
+        );
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeCustomerScreen(),
         );
