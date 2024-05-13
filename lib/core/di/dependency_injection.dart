@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:store_app/core/app/app_cubit/app_cubit.dart';
@@ -10,15 +11,17 @@ import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
 final getIt = GetIt.instance;
 
 Future<void> setUpGetIt() async {
-  final dio = await DioFactory.getDio();
-  getIt..registerFactory<AppCubit>(AppCubit.new)
-  ..registerLazySingleton<ApiService>(() => ApiService(dio))
+  final dio = DioFactory.getDio();
+  final navigatorKey = GlobalKey<NavigatorState>();
+
+  getIt
+    ..registerFactory<AppCubit>(AppCubit.new)
+    ..registerLazySingleton<ApiService>(() => ApiService(dio))
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
 
 
-  ..registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()))
-  ..registerLazySingleton<AuthDataSource>(() => AuthDataSource(getIt()))
-
-  ..registerFactory<AuthBloc>(() => AuthBloc(getIt()));
-
-
+    //Auth
+    ..registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()))
+    ..registerLazySingleton<AuthDataSource>(() => AuthDataSource(getIt()))
+    ..registerFactory<AuthBloc>(() => AuthBloc(getIt()));
 }

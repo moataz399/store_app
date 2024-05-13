@@ -3,6 +3,10 @@
 <plist version="1.0">
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
+		<key>NSCameraUsageDescription</key>
+        <string>Allow camera access to capture your profile picture.</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>Allow photos access to set your profile picture.</string>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
 		<string>Store App</string>

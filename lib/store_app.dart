@@ -63,6 +63,7 @@ class MyApp extends StatelessWidget {
                         ),
                       );
                     },
+                    navigatorKey: getIt<GlobalKey<NavigatorState>>(),
                     initialRoute: Routes.registerScreen,
                     onGenerateRoute: appRouter.generateRoute,
                   );
