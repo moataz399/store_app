@@ -9,6 +9,7 @@
   "valid_email":"Please enter a valid email",
   "valid_passwrod":"Please enter a valid password, not less than 6 characters",
   "logged_successfully": "You have been logged in successfully",
+  "register_successfully": "You have been registered successfully",
   "logged_error":"There was an error logging in. Try again",
   "create_account": "Create account",
   "sign_up_welcome": "Welcome, Please add your information",

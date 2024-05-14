@@ -3,6 +3,7 @@ import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_app/core/app/upload_image/upload_image_response.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
+import 'package:store_app/features/auth/data/models/register_response.dart';
 
 import 'package:store_app/features/auth/data/models/user_role_response.dart';
 
@@ -20,9 +21,12 @@ abstract class ApiService {
   @POST(graphql)
   Future<LoginResponse> login(@Body() Map<String, dynamic> mutation);
 
+  @POST(graphql)
+  Future<RegisterResponse> register(@Body() Map<String, dynamic> mutation);
+
   @GET(userRole)
   Future<UserRoleResponse> getUserRole();
-  
-@POST(uploadImageUrl)
+
+  @POST(uploadImageUrl)
   Future<UploadImageResponse> uploadImage(@Body() FormData formData);
 }

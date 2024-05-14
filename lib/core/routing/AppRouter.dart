@@ -26,9 +26,9 @@ class AppRouter {
       case Routes.registerScreen:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(providers: [
-            // BlocProvider(
-            //   create: (context) => getIt<AuthBloc>(),
-            // ),
+            BlocProvider(
+              create: (context) => getIt<AuthBloc>(),
+            ),
             BlocProvider(create: (context) => getIt<UploadImageCubit>())
           ], child: const RegisterScreen()),
         );

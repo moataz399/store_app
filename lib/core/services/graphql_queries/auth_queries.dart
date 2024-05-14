@@ -1,4 +1,5 @@
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
+import 'package:store_app/features/auth/data/models/register_request_body.dart';
 
 class AuthQueries {
   factory AuthQueries() {
@@ -26,4 +27,29 @@ class AuthQueries {
     };
   }
 
+  Map<String, dynamic> registerQuery({required RegisterRequestBody body}) {
+    return {
+      'query': r'''
+     mutation Register($email:String!, $password:String!, $name:String!, $avatar:String!){
+	addUser(
+		data: {
+			name: $name
+			email: $email
+			password: $password
+			avatar: $avatar
+		}
+	) {
+		id
+		email
+	}
+     } 
+     ''',
+      'variables': {
+        'email': body.email,
+        'password': body.password,
+        'name': body.name,
+        'avatar': body.avatar,
+      },
+    };
+  }
 }

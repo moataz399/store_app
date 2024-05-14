@@ -9,6 +9,7 @@ class LangKeys {
   static const String validEmail = 'valid_email';
   static const String validPasswrod = 'valid_passwrod';
   static const String loggedSuccessfully = 'logged_successfully';
+  static const String registerSuccessfully = 'register_successfully';
   static const String loggedError = 'logged_error';
   static const String createAccount = 'create_account';
   static const String signUpWelcome = 'sign_up_welcome';
