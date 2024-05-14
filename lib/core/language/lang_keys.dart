@@ -1,6 +1,10 @@
 
 class LangKeys {
   static const String language = 'language';
+  static const String categories = 'categories';
+  static const String users = 'users';
+  static const String products = 'products';
+  static const String dashboard = 'dashboard';
   static const String appName = 'app_name';
   static const String login = 'login';
   static const String welcome = 'welcome';

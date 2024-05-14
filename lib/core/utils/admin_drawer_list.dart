@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helpers/extensions.dart';
+import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/style/fonts/font_family_helper.dart';
+import 'package:store_app/core/utils/app_logout.dart';
 import 'package:store_app/core/widgets/custom_dialog.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/admin/categories/presentation/screens/categories_screen.dart';
@@ -13,126 +15,125 @@ import 'package:store_app/features/admin/users/presentation/screens/users_screen
 
 List<DrawerItemModel> adminDrawerList(BuildContext context) {
   return <DrawerItemModel>[
-    //DashBoard
     DrawerItemModel(
-      icon: const Icon(
+      icon:  Icon(
         Icons.dashboard,
-        color: Colors.white,
+        color:  context.color.textColor,
       ),
       title: TextApp(
-        text: 'DashBoard',
+        text: context.translate(LangKeys.dashboard),
         theme: context.textStyle.copyWith(
-          color: Colors.white,
+          color:  context.color.textColor,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      page: const DashboardScreen(),
+      page:  const DashboardScreen(),
     ),
     //Categories
     DrawerItemModel(
-      icon: const Icon(Icons.category_outlined, color: Colors.white),
+      icon:  Icon(Icons.category_outlined, color:  context.color.textColor),
       title: TextApp(
-        text: 'Categories',
+        text: context.translate(LangKeys.categories),
         theme: context.textStyle.copyWith(
-          color: Colors.white,
+          color:  context.color.textColor,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      page: const CategoriesScreen(),
+      page:  const CategoriesScreen(),
     ),
     //Product
     DrawerItemModel(
-      icon: const Icon(
+      icon:  Icon(
         Icons.production_quantity_limits,
-        color: Colors.white,
+        color:  context.color.textColor,
       ),
       title: TextApp(
-        text: 'Products',
+        text: context.translate(LangKeys.products),
         theme: context.textStyle.copyWith(
-          color: Colors.white,
+          color:  context.color.textColor,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      page: const ProductsScreen(),
+      page:  const ProductsScreen(),
     ),
     //Users
     DrawerItemModel(
-      icon: const Icon(
+      icon:  Icon(
         Icons.people_alt_rounded,
-        color: Colors.white,
+        color:  context.color.textColor,
       ),
       title: TextApp(
-        text: 'Users',
+        text: context.translate(LangKeys.users),
         theme: context.textStyle.copyWith(
-          color: Colors.white,
+          color:  context.color.textColor,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      page: const UsersScreen(),
+      page:  const UsersScreen(),
     ),
     //Notifications
     DrawerItemModel(
-      icon: const Icon(
+      icon:  Icon(
         Icons.notifications_active,
-        color: Colors.white,
+        color:  context.color.textColor,
       ),
       title: TextApp(
-        text: 'Notifications',
+        text: context.translate(LangKeys.notifications),
         theme: context.textStyle.copyWith(
-          color: Colors.white,
+          color:  context.color.textColor,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
           fontWeight: FontWeightHelper.bold,
         ),
       ),
-      page: const NotificationsScreen(),
+      page:  const NotificationsScreen(),
     ),
     //LogOut
     DrawerItemModel(
-      icon: const Icon(
+      icon:  Icon(
         Icons.exit_to_app,
-        color: Colors.white,
+        color:  context.color.textColor,
       ),
       title: GestureDetector(
         onTap: () {
           CustomDialog.twoButtonDialog(
             context: context,
-            textBody: 'Do you want log out?',
-            textButton1: 'Yes',
-            textButton2: 'No',
+            textBody: context.translate(LangKeys.logOutFromApp),
+            textButton1: context.translate(LangKeys.yes),
+            textButton2: context.translate(LangKeys.no),
             isLoading: false,
             onPressed: () async {
-              //   await AppLogout().logout();
+                await AppLogout().logout();
             },
           );
         },
-        child: const Text(
-          'Logout',
-          style: TextStyle(
-            color: Colors.white,
+        child: Text(
+          context.translate(LangKeys.logOut),
+          style:  TextStyle(
+            color:  context.color.textColor,
             fontFamily: 'Poppins',
             fontWeight: FontWeightHelper.bold,
             fontSize: 17,
           ),
         ),
       ),
-      page: const UsersScreen(),
+      page:  const UsersScreen(),
     ),
   ];
 }
 
 class DrawerItemModel {
-
   DrawerItemModel(
       {required this.title, required this.icon, required this.page});
+
   Widget title;
   Icon icon;
   Widget page;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:store_app/core/helpers/extensions.dart';
+import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/style/colors/colors_dark.dart';
 import 'package:store_app/core/utils/admin_drawer_list.dart';
 import 'package:store_app/core/widgets/AdminAppBar.dart';
@@ -48,10 +50,10 @@ class MenuAdminScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsDark.blueDark,
-      appBar: const AdminAppBar(
+      appBar:  AdminAppBar(
         isMain: false,
         backgroundColor: ColorsDark.blueDark,
-        title: 'Store',
+        title: context.translate(LangKeys.appName),
       ),
       body: Column(
         children: [

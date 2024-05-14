@@ -443,7 +443,6 @@ mixin _$AuthState {
     required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -452,7 +451,6 @@ mixin _$AuthState {
     TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -461,7 +459,6 @@ mixin _$AuthState {
     TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -471,7 +468,6 @@ mixin _$AuthState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_ErrorState value) error,
     required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -480,7 +476,6 @@ mixin _$AuthState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_ErrorState value)? error,
     TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -489,7 +484,6 @@ mixin _$AuthState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_ErrorState value)? error,
     TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -554,7 +548,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
   }) {
     return initial();
   }
@@ -566,7 +559,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
   }) {
     return initial?.call();
   }
@@ -578,7 +570,6 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -594,7 +585,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_ErrorState value) error,
     required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
   }) {
     return initial(this);
   }
@@ -606,7 +596,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_ErrorState value)? error,
     TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
   }) {
     return initial?.call(this);
   }
@@ -618,7 +607,6 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_ErrorState value)? error,
     TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -674,7 +662,6 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
   }) {
     return loading();
   }
@@ -686,7 +673,6 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
   }) {
     return loading?.call();
   }
@@ -698,7 +684,6 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -714,7 +699,6 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_ErrorState value) error,
     required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
   }) {
     return loading(this);
   }
@@ -726,7 +710,6 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_ErrorState value)? error,
     TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
   }) {
     return loading?.call(this);
   }
@@ -738,7 +721,6 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_ErrorState value)? error,
     TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -820,7 +802,6 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
   }) {
     return error(this.error);
   }
@@ -832,7 +813,6 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
   }) {
     return error?.call(this.error);
   }
@@ -844,7 +824,6 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -860,7 +839,6 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_ErrorState value) error,
     required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
   }) {
     return error(this);
   }
@@ -872,7 +850,6 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_ErrorState value)? error,
     TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
   }) {
     return error?.call(this);
   }
@@ -884,7 +861,6 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_ErrorState value)? error,
     TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -972,7 +948,6 @@ class _$SuccessStateImpl implements _SuccessState {
     required TResult Function() loading,
     required TResult Function(String error) error,
     required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
   }) {
     return success(userRole);
   }
@@ -984,7 +959,6 @@ class _$SuccessStateImpl implements _SuccessState {
     TResult? Function()? loading,
     TResult? Function(String error)? error,
     TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
   }) {
     return success?.call(userRole);
   }
@@ -996,7 +970,6 @@ class _$SuccessStateImpl implements _SuccessState {
     TResult Function()? loading,
     TResult Function(String error)? error,
     TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1012,7 +985,6 @@ class _$SuccessStateImpl implements _SuccessState {
     required TResult Function(_LoadingState value) loading,
     required TResult Function(_ErrorState value) error,
     required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
   }) {
     return success(this);
   }
@@ -1024,7 +996,6 @@ class _$SuccessStateImpl implements _SuccessState {
     TResult? Function(_LoadingState value)? loading,
     TResult? Function(_ErrorState value)? error,
     TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
   }) {
     return success?.call(this);
   }
@@ -1036,7 +1007,6 @@ class _$SuccessStateImpl implements _SuccessState {
     TResult Function(_LoadingState value)? loading,
     TResult Function(_ErrorState value)? error,
     TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1054,125 +1024,4 @@ abstract class _SuccessState implements AuthState {
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$RegisterSuccessStateImplCopyWith<$Res> {
-  factory _$$RegisterSuccessStateImplCopyWith(_$RegisterSuccessStateImpl value,
-          $Res Function(_$RegisterSuccessStateImpl) then) =
-      __$$RegisterSuccessStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$RegisterSuccessStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$RegisterSuccessStateImpl>
-    implements _$$RegisterSuccessStateImplCopyWith<$Res> {
-  __$$RegisterSuccessStateImplCopyWithImpl(_$RegisterSuccessStateImpl _value,
-      $Res Function(_$RegisterSuccessStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$RegisterSuccessStateImpl implements _RegisterSuccessState {
-  const _$RegisterSuccessStateImpl();
-
-  @override
-  String toString() {
-    return 'AuthState.registerSuccess()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RegisterSuccessStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(String error) error,
-    required TResult Function(String userRole) success,
-    required TResult Function() registerSuccess,
-  }) {
-    return registerSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(String error)? error,
-    TResult? Function(String userRole)? success,
-    TResult? Function()? registerSuccess,
-  }) {
-    return registerSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(String error)? error,
-    TResult Function(String userRole)? success,
-    TResult Function()? registerSuccess,
-    required TResult orElse(),
-  }) {
-    if (registerSuccess != null) {
-      return registerSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadingState value) loading,
-    required TResult Function(_ErrorState value) error,
-    required TResult Function(_SuccessState value) success,
-    required TResult Function(_RegisterSuccessState value) registerSuccess,
-  }) {
-    return registerSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadingState value)? loading,
-    TResult? Function(_ErrorState value)? error,
-    TResult? Function(_SuccessState value)? success,
-    TResult? Function(_RegisterSuccessState value)? registerSuccess,
-  }) {
-    return registerSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadingState value)? loading,
-    TResult Function(_ErrorState value)? error,
-    TResult Function(_SuccessState value)? success,
-    TResult Function(_RegisterSuccessState value)? registerSuccess,
-    required TResult orElse(),
-  }) {
-    if (registerSuccess != null) {
-      return registerSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RegisterSuccessState implements AuthState {
-  const factory _RegisterSuccessState() = _$RegisterSuccessStateImpl;
 }

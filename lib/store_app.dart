@@ -25,10 +25,10 @@ class MyApp extends StatelessWidget {
       builder: (_, value, __) {
         if (value) {
           return BlocProvider(
-            create: (context) =>
-            getIt<AppCubit>()
+            create: (context) => getIt<AppCubit>()
               ..changeAppThemeMode(
-                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),)
+                sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+              )
               ..getSavedLanguage(),
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
@@ -44,9 +44,9 @@ class MyApp extends StatelessWidget {
                     locale: Locale(cubit.currentLangCode),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localizationsDelegates:
-                    AppLocalizationsSetup.localizationsDelegates,
+                        AppLocalizationsSetup.localizationsDelegates,
                     localeResolutionCallback:
-                    AppLocalizationsSetup.localeResolutionCallback,
+                        AppLocalizationsSetup.localeResolutionCallback,
                     debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
                     builder: (context, widget) {
                       return GestureDetector(
@@ -64,11 +64,17 @@ class MyApp extends StatelessWidget {
                       );
                     },
                     navigatorKey: getIt<GlobalKey<NavigatorState>>(),
-                    initialRoute: SharedPref().getString(
-                        PrefKeys.accessToken,) != null ? SharedPref().getString(
-                        PrefKeys.userRole,) != 'admin'
-                        ? Routes.homeScreen
-                        : Routes.homeAdminScreen : Routes.loginScreen,
+                    initialRoute: SharedPref()
+                            .getString(
+                              PrefKeys.accessToken,
+                            ) != null?
+                         SharedPref().getString(
+                                  PrefKeys.userRole,
+                                ) !=
+                                'admin'
+                            ? Routes.homeScreen
+                            : Routes.homeAdminScreen
+                        : Routes.loginScreen,
                     onGenerateRoute: appRouter.generateRoute,
                   );
                 },

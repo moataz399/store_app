@@ -2,6 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_app/core/app/upload_image/upload_image_response.dart';
+import 'package:store_app/features/admin/dashboard/data/models/admin_categories_model.dart';
+import 'package:store_app/features/admin/dashboard/data/models/admin_users_response.dart';
+import 'package:store_app/features/admin/dashboard/data/models/product_admin_model.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/register_response.dart';
 
@@ -29,4 +32,13 @@ abstract class ApiService {
 
   @POST(uploadImageUrl)
   Future<UploadImageResponse> uploadImage(@Body() FormData formData);
+
+  @POST(graphql)
+  Future<AdminProductResponse> getAdminProducts(@Body() Map<String, dynamic> mutation);
+  @POST(graphql)
+  Future<AdminUsersResponse> getUsersNumber(@Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<AdminCategoriesResponse> getCategoriesNumber(
+      @Body() Map<String, dynamic> mutation);
 }

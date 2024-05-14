@@ -39,6 +39,7 @@ class DashBoardContainer extends StatelessWidget {
                 TextApp(
                   text: title,
                   theme: context.textStyle.copyWith(
+                    color: context.color.textColor,
                     fontSize: 24.sp,
                     fontWeight: FontWeightHelper.bold,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -51,6 +52,7 @@ class DashBoardContainer extends StatelessWidget {
                   TextApp(
                     text: number,
                     theme: context.textStyle.copyWith(
+                      color: context.color.textColor,
                       fontSize: 24.sp,
                       fontWeight: FontWeightHelper.bold,
                       fontFamily: FontFamilyHelper.poppinsEnglish,

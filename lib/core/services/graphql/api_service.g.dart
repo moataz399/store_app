@@ -130,6 +130,93 @@ class _ApiService implements ApiService {
     return value;
   }
 
+  @override
+  Future<AdminProductResponse> getAdminProducts(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminProductResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminProductResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminUsersResponse> getUsersNumber(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<AdminUsersResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminUsersResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminCategoriesResponse> getCategoriesNumber(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminCategoriesResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminCategoriesResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
