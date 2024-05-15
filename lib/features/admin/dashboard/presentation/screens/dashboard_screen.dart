@@ -13,6 +13,7 @@ import 'package:store_app/features/admin/dashboard/presentation/widgets/admin_co
 import 'package:store_app/features/admin/products/presentation/cubit/admin_products_cubit.dart';
 
 class DashboardScreen extends StatelessWidget {
+
   const DashboardScreen({super.key});
 
   @override
@@ -35,96 +36,96 @@ class DashboardScreen extends StatelessWidget {
           backgroundColor: ColorsDark.mainColor,
           title: context.translate(LangKeys.dashboard),
         ),
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-            child: Column(
-              children: [
-                BlocBuilder<AdminProductsCubit, AdminProductsState>(
-                  builder: (context, state) {
-                    return state.when(
-                      error: (error) {
-                        return const Text(
-                          'sorry something went wrong try to refresh the page ',
-                        );
-                      },
-                      success: (data) {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.products),
-                          number: data.productsNumber,
-                          image: 'assets/images/admin/products_drawer.png',
-                          isLoading: false,
-                        );
-                      },
-                      loading: () {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.products),
-                          number: '0',
-                          image: 'assets/images/admin/products_drawer.png',
-                          isLoading: true,
-                        );
-                      },
-                    );
-                  },
-                ),
-                verticalSpace(20),
-                BlocBuilder<CategoriesNumberCubit, CategoriesNumberState>(
-                  builder: (context, state) {
-                    return state.when(
-                      error: (error) {
-                        return const Text(
-                          'sorry something went wrong try to refresh the page ',
-                        );
-                      },
-                      success: (data) {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.categories),
-                          number: data.categoriesNumber,
-                          image: 'assets/images/admin/categories_drawer.png',
-                          isLoading: false,
-                        );
-                      },
-                      loading: () {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.categories),
-                          number: '0',
-                          image: 'assets/images/admin/categories_drawer.png',
-                          isLoading: true,
-                        );
-                      },
-                    );
-                  },
-                ),
-                verticalSpace(20),
-                BlocBuilder<UsersNumberCubit, UsersNumberState>(
-                  builder: (context, state) {
-                    return state.when(
-                      error: (error) {
-                        return const Text(
-                          'sorry something went wrong try to refresh the page ',
-                        );
-                      },
-                      success: (data) {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.users),
-                          number: data.usersNumber,
-                          image: 'assets/images/admin/users_drawer.png',
-                          isLoading: false,
-                        );
-                      },
-                      loading: () {
-                        return DashBoardContainer(
-                          title: context.translate(LangKeys.users),
-                          number: '0',
-                          image: 'assets/images/admin/users_drawer.png',
-                          isLoading: true,
-                        );
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+          child: Column(
+            children: [
+              BlocBuilder<AdminProductsCubit, AdminProductsState>(
+                builder: (context, state) {
+                  return state.when(
+                    error: (error) {
+                      return const Text(
+                        'sorry something went wrong try to refresh the page ',
+                      );
+                    },
+                    success: (data) {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.products),
+                        number: data.productsNumber,
+                        image: 'assets/images/admin/products_drawer.png',
+                        isLoading: false,
+                      );
+                    },
+                    loading: () {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.products),
+                        number: '0',
+                        image: 'assets/images/admin/products_drawer.png',
+                        isLoading: true,
+                      );
+                    },
+                  );
+                },
+              ),
+              verticalSpace(20),
+              BlocBuilder<CategoriesNumberCubit, CategoriesNumberState>(
+                builder: (context, state) {
+                  return state.when(
+                    error: (error) {
+                      return const Text(
+                        'sorry something went wrong try to refresh the page ',
+                      );
+                    },
+                    success: (data) {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.categories),
+                        number: data.categoriesNumber,
+                        image:
+                            'assets/images/admin/categories_drawer.png',
+                        isLoading: false,
+                      );
+                    },
+                    loading: () {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.categories),
+                        number: '0',
+                        image:
+                            'assets/images/admin/categories_drawer.png',
+                        isLoading: true,
+                      );
+                    },
+                  );
+                },
+              ),
+              verticalSpace(20),
+              BlocBuilder<UsersNumberCubit, UsersNumberState>(
+                builder: (context, state) {
+                  return state.when(
+                    error: (error) {
+                      return const Text(
+                        'sorry something went wrong try to refresh the page ',
+                      );
+                    },
+                    success: (data) {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.users),
+                        number: data.usersNumber,
+                        image: 'assets/images/admin/users_drawer.png',
+                        isLoading: false,
+                      );
+                    },
+                    loading: () {
+                      return DashBoardContainer(
+                        title: context.translate(LangKeys.users),
+                        number: '0',
+                        image: 'assets/images/admin/users_drawer.png',
+                        isLoading: true,
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
