@@ -83,7 +83,7 @@ class AppTextFormField extends StatelessWidget {
       obscureText: isObscureText ?? false,
       style: context.textStyle.copyWith(
         fontSize: 14.sp,
-        color: Colors.blueAccent,
+        color: context.color.textColor,
         fontWeight: FontWeightHelper.medium,
       ),
       validator: validator,

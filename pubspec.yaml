@@ -16,17 +16,26 @@ dependencies:
 
   #core
   get_it: ^7.7.0
-  flutter_native_splash: ^2.4.0
+
   connectivity_plus: ^5.0.2
   flutter_dotenv: ^5.1.0
   flutter_screenutil:
   flutter_localization: ^0.2.0
-  animate_do: ^3.3.4
   flutter_bloc: ^8.1.5
   shared_preferences: ^2.2.3
   freezed_annotation: ^2.4.1
   json_annotation: ^4.9.0
+  image_picker: ^1.1.1
+  permission_handler: ^11.3.1
+
+
+  #ui
+  flutter_zoom_drawer: ^3.2.0
+  flutter_native_splash: ^2.4.0
+  animate_do: ^3.3.4
   fluttertoast: ^8.2.4
+  shimmer: ^3.0.0
+  cached_network_image: ^3.3.1
 
   #api
   dio: ^5.4.3+1

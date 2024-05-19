@@ -1,6 +1,10 @@
 
 class LangKeys {
   static const String language = 'language';
+  static const String categories = 'categories';
+  static const String users = 'users';
+  static const String products = 'products';
+  static const String dashboard = 'dashboard';
   static const String appName = 'app_name';
   static const String login = 'login';
   static const String welcome = 'welcome';
@@ -9,6 +13,7 @@ class LangKeys {
   static const String validEmail = 'valid_email';
   static const String validPasswrod = 'valid_passwrod';
   static const String loggedSuccessfully = 'logged_successfully';
+  static const String registerSuccessfully = 'register_successfully';
   static const String loggedError = 'logged_error';
   static const String createAccount = 'create_account';
   static const String signUpWelcome = 'sign_up_welcome';

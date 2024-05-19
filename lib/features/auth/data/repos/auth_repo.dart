@@ -3,6 +3,8 @@ import 'package:store_app/core/services/graphql/api_result.dart';
 import 'package:store_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
+import 'package:store_app/features/auth/data/models/register_request_body.dart';
+import 'package:store_app/features/auth/data/models/register_response.dart';
 import 'package:store_app/features/auth/data/models/user_role_response.dart';
 
 class AuthRepo {
@@ -15,6 +17,19 @@ class AuthRepo {
   }) async {
     try {
       final response = await authDataSource.login(body: body);
+      return ApiResult.success(response);
+    } catch (error) {
+      return const ApiResult.failure(
+        LangKeys.loggedError,
+      );
+    }
+  }
+
+  Future<ApiResult<RegisterResponse>> register({
+    required RegisterRequestBody body,
+  }) async {
+    try {
+      final response = await authDataSource.register(body: body);
       return ApiResult.success(response);
     } catch (error) {
       return const ApiResult.failure(

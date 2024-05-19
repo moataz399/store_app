@@ -20,18 +20,21 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? register,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_statrted value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(RegisterEvent value) register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_statrted value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(RegisterEvent value)? register,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_statrted value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(RegisterEvent value)? register,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$statrtedImpl implements _statrted {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) register,
   }) {
     return started();
   }
@@ -122,6 +129,7 @@ class _$statrtedImpl implements _statrted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? register,
   }) {
     return started?.call();
   }
@@ -131,6 +139,7 @@ class _$statrtedImpl implements _statrted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? register,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,6 +153,7 @@ class _$statrtedImpl implements _statrted {
   TResult map<TResult extends Object?>({
     required TResult Function(_statrted value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(RegisterEvent value) register,
   }) {
     return started(this);
   }
@@ -153,6 +163,7 @@ class _$statrtedImpl implements _statrted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_statrted value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(RegisterEvent value)? register,
   }) {
     return started?.call(this);
   }
@@ -162,6 +173,7 @@ class _$statrtedImpl implements _statrted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_statrted value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(RegisterEvent value)? register,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -215,6 +227,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) register,
   }) {
     return login();
   }
@@ -224,6 +237,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? register,
   }) {
     return login?.call();
   }
@@ -233,6 +247,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? register,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -246,6 +261,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_statrted value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(RegisterEvent value) register,
   }) {
     return login(this);
   }
@@ -255,6 +271,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_statrted value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(RegisterEvent value)? register,
   }) {
     return login?.call(this);
   }
@@ -264,6 +281,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_statrted value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(RegisterEvent value)? register,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -275,6 +293,146 @@ class _$LoginEventImpl implements LoginEvent {
 
 abstract class LoginEvent implements AuthEvent {
   const factory LoginEvent() = _$LoginEventImpl;
+}
+
+/// @nodoc
+abstract class _$$RegisterEventImplCopyWith<$Res> {
+  factory _$$RegisterEventImplCopyWith(
+          _$RegisterEventImpl value, $Res Function(_$RegisterEventImpl) then) =
+      __$$RegisterEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageUrl});
+}
+
+/// @nodoc
+class __$$RegisterEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$RegisterEventImpl>
+    implements _$$RegisterEventImplCopyWith<$Res> {
+  __$$RegisterEventImplCopyWithImpl(
+      _$RegisterEventImpl _value, $Res Function(_$RegisterEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageUrl = null,
+  }) {
+    return _then(_$RegisterEventImpl(
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RegisterEventImpl implements RegisterEvent {
+  _$RegisterEventImpl({required this.imageUrl});
+
+  @override
+  final String imageUrl;
+
+  @override
+  String toString() {
+    return 'AuthEvent.register(imageUrl: $imageUrl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterEventImpl &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageUrl);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterEventImplCopyWith<_$RegisterEventImpl> get copyWith =>
+      __$$RegisterEventImplCopyWithImpl<_$RegisterEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() login,
+    required TResult Function(String imageUrl) register,
+  }) {
+    return register(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? login,
+    TResult? Function(String imageUrl)? register,
+  }) {
+    return register?.call(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? login,
+    TResult Function(String imageUrl)? register,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(imageUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_statrted value) started,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(RegisterEvent value) register,
+  }) {
+    return register(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_statrted value)? started,
+    TResult? Function(LoginEvent value)? login,
+    TResult? Function(RegisterEvent value)? register,
+  }) {
+    return register?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_statrted value)? started,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(RegisterEvent value)? register,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterEvent implements AuthEvent {
+  factory RegisterEvent({required final String imageUrl}) = _$RegisterEventImpl;
+
+  String get imageUrl;
+  @JsonKey(ignore: true)
+  _$$RegisterEventImplCopyWith<_$RegisterEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -49,6 +49,34 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<RegisterResponse> register(Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RegisterResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = RegisterResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<UserRoleResponse> getUserRole() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -72,6 +100,236 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = UserRoleResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<UploadImageResponse> uploadImage(FormData formData) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = formData;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UploadImageResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/files/upload',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = UploadImageResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminProductResponse> getAdminProducts(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminProductResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminProductResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminUsersResponse> getUsersNumber(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<AdminUsersResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminUsersResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminCategoriesResponseDashBoard> getCategoriesNumber(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminCategoriesResponseDashBoard>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminCategoriesResponseDashBoard.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AdminCategoriesResponse> getCategories(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminCategoriesResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminCategoriesResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<DeleteCategoryResponse> deleteCategory(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DeleteCategoryResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = DeleteCategoryResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AddCategoryResponse> createCategory(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AddCategoryResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AddCategoryResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AddCategoryResponse> editCategory(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AddCategoryResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AddCategoryResponse.fromJson(_result.data!);
     return value;
   }
 

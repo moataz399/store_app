@@ -9,10 +9,9 @@ import 'package:store_app/core/language/app_localizations_setup.dart';
 import 'package:store_app/core/routing/AppRouter.dart';
 import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/services/shared_pref/pref_keys.dart';
+import 'package:store_app/core/services/shared_pref/shared_pref.dart';
 import 'package:store_app/core/style/theme/app_theme.dart';
 import 'package:store_app/core/widgets/no_network_screen.dart';
-
-import 'core/services/shared_pref/shared_pref.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({required this.appRouter, super.key});
@@ -28,7 +27,8 @@ class MyApp extends StatelessWidget {
           return BlocProvider(
             create: (context) => getIt<AppCubit>()
               ..changeAppThemeMode(
-                  sharedMode: SharedPref().getBoolean(PrefKeys.themeMode))
+                sharedMode: SharedPref().getBoolean(PrefKeys.themeMode),
+              )
               ..getSavedLanguage(),
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
@@ -63,7 +63,18 @@ class MyApp extends StatelessWidget {
                         ),
                       );
                     },
-                    initialRoute: Routes.registerScreen,
+                    navigatorKey: getIt<GlobalKey<NavigatorState>>(),
+                    initialRoute: SharedPref()
+                            .getString(
+                              PrefKeys.accessToken,
+                            ) != null?
+                         SharedPref().getString(
+                                  PrefKeys.userRole,
+                                ) !=
+                                'admin'
+                            ? Routes.homeScreen
+                            : Routes.homeAdminScreen
+                        : Routes.loginScreen,
                     onGenerateRoute: appRouter.generateRoute,
                   );
                 },
