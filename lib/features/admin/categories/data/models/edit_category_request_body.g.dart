@@ -10,7 +10,7 @@ EditCategoryRequestBody _$EditCategoryRequestBodyFromJson(
         Map<String, dynamic> json) =>
     EditCategoryRequestBody(
       name: json['name'] as String,
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       image: json['image'] as String,
     );
 

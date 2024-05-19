@@ -13,7 +13,7 @@ class EditCategoryRequestBody {
 
   final String name;
   final String image;
-  final int id;
+  final String id;
 
 
   Map<String,dynamic> toJson()=> _$EditCategoryRequestBodyToJson(this);

@@ -28,6 +28,11 @@ class CategoriesScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             CustomBottomSheet.showBottomSheet(
+              whenComplete: () {
+                context.read<CategoriesBloc>().add(
+                      const CategoriesEvent.getCategories(),
+                    );
+              },
               context: context,
               widget: MultiBlocProvider(providers: [
                 BlocProvider(create: (context) => getIt<UploadImageCubit>()),

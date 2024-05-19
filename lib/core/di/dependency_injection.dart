@@ -69,6 +69,6 @@ Future<void> setUpGetIt() async {
         () => CategoriesRepo(getIt<GetCategoriesDataSource>()))
   ..registerLazySingleton<GetCategoriesDataSource>(
         () => GetCategoriesDataSource(getIt()))
-  ..registerLazySingleton<CategoriesBloc>(
+  ..registerFactory<CategoriesBloc>(
         () => CategoriesBloc(getIt()));
 }

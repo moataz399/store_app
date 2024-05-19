@@ -29,10 +29,7 @@ class GetCategoriesDataSource {
     return result;
   }
 
-  Future<void> editCategory(
-      {required EditCategoryRequestBody body}) async {
-    final result = await apiService
-        .editCategory(AdminQueries().editCategoryQuery(body: body));
-
+  Future<void> editCategory({required EditCategoryRequestBody body}) async {
+    await apiService.editCategory(AdminQueries().editCategoryQuery(body: body));
   }
 }

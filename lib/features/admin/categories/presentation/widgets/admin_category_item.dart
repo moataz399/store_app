@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/widgets/custom_admin_container.dart';
@@ -10,6 +11,8 @@ import 'package:store_app/core/widgets/show_toast.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
 import 'package:store_app/features/admin/categories/presentation/widgets/edit_category_bottom_sheet.dart';
+
+import '../../../../../core/di/dependency_injection.dart';
 
 class AdminCategoryItem extends StatelessWidget {
   const AdminCategoryItem(
@@ -51,10 +54,26 @@ class AdminCategoryItem extends StatelessWidget {
                     IconButton(
                       onPressed: () {
                         CustomBottomSheet.showBottomSheet(
+                          whenComplete: (){
+
+                            context.read<CategoriesBloc>().add(const CategoriesEvent.getCategories());
+                          },
                           context: context,
-                          widget: EditCategoryBottomSheetWidget(
-                            name: title,
-                            imgUrl: imageUrl,
+                          widget: MultiBlocProvider(
+
+                            providers: [
+                              BlocProvider.value(
+                                value: getIt<CategoriesBloc>(),
+                              ),
+                              BlocProvider(
+                                  create: (context) =>
+                                      getIt<UploadImageCubit>()),
+                            ],
+                            child: EditCategoryBottomSheetWidget(
+                              name: title,
+                              imgUrl: imageUrl,
+                              id: id,
+                            ),
                           ),
                         );
                       },

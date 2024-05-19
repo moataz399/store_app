@@ -22,6 +22,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetCategoriesEvent>(getCategories);
     on<AddCategoryEvent>(addCategory);
     on<DeleteCategoryEvent>(deleteCategory);
+    on<EditCategoryEvent>(editCategory);
   }
 
   TextEditingController nameController = TextEditingController();
@@ -78,7 +79,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   }
 
   FutureOr<void> editCategory(
-      EditCategory event, Emitter<CategoriesState> emit) async {
+      EditCategoryEvent event, Emitter<CategoriesState> emit) async {
     emit(const CategoriesState.loading());
 
     final result = await getCategoriesRepo.editCategory(body: event.body);

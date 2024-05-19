@@ -50,7 +50,7 @@ mixin _$CategoriesEvent {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +59,7 @@ mixin _$CategoriesEvent {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +68,7 @@ mixin _$CategoriesEvent {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,7 +174,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) {
     return started(this);
   }
@@ -186,7 +186,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) {
     return started?.call(this);
   }
@@ -198,7 +198,7 @@ class _$StartedImpl implements _Started {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -294,7 +294,7 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) {
     return getCategories(this);
   }
@@ -306,7 +306,7 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) {
     return getCategories?.call(this);
   }
@@ -318,7 +318,7 @@ class _$GetCategoriesEventImpl implements GetCategoriesEvent {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -442,7 +442,7 @@ class _$AddCategoryEventImpl implements AddCategoryEvent {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) {
     return addCategory(this);
   }
@@ -454,7 +454,7 @@ class _$AddCategoryEventImpl implements AddCategoryEvent {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) {
     return addCategory?.call(this);
   }
@@ -466,7 +466,7 @@ class _$AddCategoryEventImpl implements AddCategoryEvent {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -595,7 +595,7 @@ class _$DeleteCategoryEventImpl implements DeleteCategoryEvent {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) {
     return deleteCategory(this);
   }
@@ -607,7 +607,7 @@ class _$DeleteCategoryEventImpl implements DeleteCategoryEvent {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) {
     return deleteCategory?.call(this);
   }
@@ -619,7 +619,7 @@ class _$DeleteCategoryEventImpl implements DeleteCategoryEvent {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) {
     if (deleteCategory != null) {
@@ -640,20 +640,20 @@ abstract class DeleteCategoryEvent implements CategoriesEvent {
 }
 
 /// @nodoc
-abstract class _$$EditCategoryImplCopyWith<$Res> {
-  factory _$$EditCategoryImplCopyWith(
-          _$EditCategoryImpl value, $Res Function(_$EditCategoryImpl) then) =
-      __$$EditCategoryImplCopyWithImpl<$Res>;
+abstract class _$$EditCategoryEventImplCopyWith<$Res> {
+  factory _$$EditCategoryEventImplCopyWith(_$EditCategoryEventImpl value,
+          $Res Function(_$EditCategoryEventImpl) then) =
+      __$$EditCategoryEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EditCategoryRequestBody body});
 }
 
 /// @nodoc
-class __$$EditCategoryImplCopyWithImpl<$Res>
-    extends _$CategoriesEventCopyWithImpl<$Res, _$EditCategoryImpl>
-    implements _$$EditCategoryImplCopyWith<$Res> {
-  __$$EditCategoryImplCopyWithImpl(
-      _$EditCategoryImpl _value, $Res Function(_$EditCategoryImpl) _then)
+class __$$EditCategoryEventImplCopyWithImpl<$Res>
+    extends _$CategoriesEventCopyWithImpl<$Res, _$EditCategoryEventImpl>
+    implements _$$EditCategoryEventImplCopyWith<$Res> {
+  __$$EditCategoryEventImplCopyWithImpl(_$EditCategoryEventImpl _value,
+      $Res Function(_$EditCategoryEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -661,7 +661,7 @@ class __$$EditCategoryImplCopyWithImpl<$Res>
   $Res call({
     Object? body = null,
   }) {
-    return _then(_$EditCategoryImpl(
+    return _then(_$EditCategoryEventImpl(
       body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -672,8 +672,8 @@ class __$$EditCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditCategoryImpl implements EditCategory {
-  const _$EditCategoryImpl({required this.body});
+class _$EditCategoryEventImpl implements EditCategoryEvent {
+  const _$EditCategoryEventImpl({required this.body});
 
   @override
   final EditCategoryRequestBody body;
@@ -687,7 +687,7 @@ class _$EditCategoryImpl implements EditCategory {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditCategoryImpl &&
+            other is _$EditCategoryEventImpl &&
             (identical(other.body, body) || other.body == body));
   }
 
@@ -697,8 +697,9 @@ class _$EditCategoryImpl implements EditCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditCategoryImplCopyWith<_$EditCategoryImpl> get copyWith =>
-      __$$EditCategoryImplCopyWithImpl<_$EditCategoryImpl>(this, _$identity);
+  _$$EditCategoryEventImplCopyWith<_$EditCategoryEventImpl> get copyWith =>
+      __$$EditCategoryEventImplCopyWithImpl<_$EditCategoryEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -747,7 +748,7 @@ class _$EditCategoryImpl implements EditCategory {
     required TResult Function(GetCategoriesEvent value) getCategories,
     required TResult Function(AddCategoryEvent value) addCategory,
     required TResult Function(DeleteCategoryEvent value) deleteCategory,
-    required TResult Function(EditCategory value) editCategory,
+    required TResult Function(EditCategoryEvent value) editCategory,
   }) {
     return editCategory(this);
   }
@@ -759,7 +760,7 @@ class _$EditCategoryImpl implements EditCategory {
     TResult? Function(GetCategoriesEvent value)? getCategories,
     TResult? Function(AddCategoryEvent value)? addCategory,
     TResult? Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult? Function(EditCategory value)? editCategory,
+    TResult? Function(EditCategoryEvent value)? editCategory,
   }) {
     return editCategory?.call(this);
   }
@@ -771,7 +772,7 @@ class _$EditCategoryImpl implements EditCategory {
     TResult Function(GetCategoriesEvent value)? getCategories,
     TResult Function(AddCategoryEvent value)? addCategory,
     TResult Function(DeleteCategoryEvent value)? deleteCategory,
-    TResult Function(EditCategory value)? editCategory,
+    TResult Function(EditCategoryEvent value)? editCategory,
     required TResult orElse(),
   }) {
     if (editCategory != null) {
@@ -781,13 +782,13 @@ class _$EditCategoryImpl implements EditCategory {
   }
 }
 
-abstract class EditCategory implements CategoriesEvent {
-  const factory EditCategory({required final EditCategoryRequestBody body}) =
-      _$EditCategoryImpl;
+abstract class EditCategoryEvent implements CategoriesEvent {
+  const factory EditCategoryEvent(
+      {required final EditCategoryRequestBody body}) = _$EditCategoryEventImpl;
 
   EditCategoryRequestBody get body;
   @JsonKey(ignore: true)
-  _$$EditCategoryImplCopyWith<_$EditCategoryImpl> get copyWith =>
+  _$$EditCategoryEventImplCopyWith<_$EditCategoryEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

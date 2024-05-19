@@ -6,6 +6,6 @@ class CategoriesEvent with _$CategoriesEvent {
   const factory CategoriesEvent.getCategories() = GetCategoriesEvent;
   const factory CategoriesEvent.addCategory({required String imageUrl}) = AddCategoryEvent;
   const factory CategoriesEvent.deleteCategory({required String id }) = DeleteCategoryEvent;
-  const factory CategoriesEvent.editCategory({required EditCategoryRequestBody body}) = EditCategory;
+  const factory CategoriesEvent.editCategory({required EditCategoryRequestBody body}) = EditCategoryEvent;
 
 }
