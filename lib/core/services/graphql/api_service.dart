@@ -8,6 +8,7 @@ import 'package:store_app/features/admin/categories/data/models/delete_category_
 import 'package:store_app/features/admin/dashboard/data/models/admin_categories_model.dart';
 import 'package:store_app/features/admin/dashboard/data/models/admin_users_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/product_admin_model.dart';
+import 'package:store_app/features/admin/users/data/models/get_all_users_response.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/register_response.dart';
 
@@ -61,6 +62,19 @@ abstract class ApiService {
       @Body() Map<String, dynamic> mutation);
 
   @POST(graphql)
-  Future<AddCategoryResponse> editCategory(
+  Future<void> editCategory(
       @Body() Map<String, dynamic> mutation);
+
+
+
+
+  ///users
+
+  @POST(graphql)
+  Future<GetAllUsersResponse> getAllUsers(
+      @Body() Map<String, dynamic> mutation);
+  @POST(graphql)
+  Future<void> deleteUser(
+      @Body() Map<String, dynamic> mutation);
+
 }

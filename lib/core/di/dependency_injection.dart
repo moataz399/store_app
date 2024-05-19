@@ -14,6 +14,10 @@ import 'package:store_app/features/admin/dashboard/data/repo/admin_product_repo.
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cubit/users_number_cubit.dart';
 import 'package:store_app/features/admin/products/presentation/cubit/admin_products_cubit.dart';
+import 'package:store_app/features/admin/users/data/data_source/users_data_source.dart';
+import 'package:store_app/features/admin/users/data/repos/users_repo.dart';
+import 'package:store_app/features/admin/users/presentation/bloc/delete_bloc/delete_user_bloc.dart';
+import 'package:store_app/features/admin/users/presentation/bloc/users_bloc.dart';
 import 'package:store_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:store_app/features/auth/data/repos/auth_repo.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
@@ -64,11 +68,14 @@ Future<void> setUpGetIt() async {
     ..registerFactory<CategoriesNumberCubit>(
       () => CategoriesNumberCubit(getIt<AdminDashBoardRepo>()),
     )
-
-  ..registerLazySingleton<CategoriesRepo>(
+    ..registerLazySingleton<CategoriesRepo>(
         () => CategoriesRepo(getIt<GetCategoriesDataSource>()))
-  ..registerLazySingleton<GetCategoriesDataSource>(
+    ..registerLazySingleton<GetCategoriesDataSource>(
         () => GetCategoriesDataSource(getIt()))
-  ..registerFactory<CategoriesBloc>(
-        () => CategoriesBloc(getIt()));
+    ..registerFactory<CategoriesBloc>(() => CategoriesBloc(getIt()))
+    ..registerLazySingleton<UsersRepo>(
+        () => UsersRepo(getIt<UsersDataSource>()))
+    ..registerLazySingleton<UsersDataSource>(() => UsersDataSource(getIt()))
+    ..registerFactory<DeleteUserBloc>(() => DeleteUserBloc(getIt()))
+    ..registerFactory<UsersBloc>(() => UsersBloc(getIt()));
 }

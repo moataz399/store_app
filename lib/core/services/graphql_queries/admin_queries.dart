@@ -116,4 +116,32 @@ class AdminQueries {
       },
     };
   }
+
+  Map<String, dynamic> getUsersQuery() {
+    return {
+      'query': '''
+                  {
+             users{
+		                id
+		                name
+		                email
+  }
+}
+     ''',
+    };
+  }
+
+  Map<String, dynamic> deleteUser({required String id}) {
+    return {
+      'query': r'''
+                 mutation Delete($id: ID!){
+	deleteUser(id: $id)
+}
+
+     ''',
+      'variables': {
+        'id': id,
+      },
+    };
+  }
 }

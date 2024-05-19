@@ -4,6 +4,21 @@ import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 
 class AppTextFormField extends StatelessWidget {
+
+  const AppTextFormField({
+    required this.hintText, super.key,
+    this.contentPadding,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.inputTextStyle,
+    this.hintStyle,
+    this.isObscureText,
+    this.suffixIcon,
+    this.backgroundColor,
+    this.controller,
+    this.validator,
+    this.onChanged,
+  });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
@@ -14,26 +29,13 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
-  final String? Function(String?) validator;
-
-  const AppTextFormField({
-    super.key,
-    this.contentPadding,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.inputTextStyle,
-    this.hintStyle,
-    required this.hintText,
-    this.isObscureText,
-    this.suffixIcon,
-    this.backgroundColor,
-    this.controller,
-    required this.validator,
-  });
+  final String? Function(String?)? validator;
+  final String? Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
