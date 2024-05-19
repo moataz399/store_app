@@ -20,7 +20,7 @@ class AdminDashBoardRepo {
     }
   }
 
-  Future<ApiResult<AdminCategoriesResponse>> getCategoriesNumber() async {
+  Future<ApiResult<AdminCategoriesResponseDashBoard>> getCategoriesNumber() async {
     try {
       final result = await adminDataSource.getCategoriesNumber();
       return ApiResult.success(result);

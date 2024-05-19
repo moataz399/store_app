@@ -7,6 +7,8 @@ import 'package:store_app/core/app/upload_image/upload_image_data_source.dart';
 import 'package:store_app/core/app/upload_image/upload_image_repo.dart';
 import 'package:store_app/core/services/graphql/api_service.dart';
 import 'package:store_app/core/services/graphql/dio_factory.dart';
+import 'package:store_app/features/admin/categories/data/repos/get_categories_repo.dart';
+import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/admin_product_data_source.dart';
 import 'package:store_app/features/admin/dashboard/data/repo/admin_product_repo.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
@@ -15,6 +17,8 @@ import 'package:store_app/features/admin/products/presentation/cubit/admin_produ
 import 'package:store_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:store_app/features/auth/data/repos/auth_repo.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
+
+import '../../features/admin/categories/data/data_source/get_categories_data_source.dart';
 
 final getIt = GetIt.instance;
 
@@ -27,38 +31,44 @@ Future<void> setUpGetIt() async {
     ..registerLazySingleton<ApiService>(() => ApiService(dio))
     ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
 
-  //Auth
-    ..registerLazySingleton<AuthRepo>(() =>
-        AuthRepo(getIt<AuthDataSource>()))..registerLazySingleton<
-      AuthDataSource>(
-          () => AuthDataSource(getIt<ApiService>()))
+    //Auth
+    ..registerLazySingleton<AuthRepo>(() => AuthRepo(getIt<AuthDataSource>()))
+    ..registerLazySingleton<AuthDataSource>(
+        () => AuthDataSource(getIt<ApiService>()))
     ..registerFactory<AuthBloc>(() => AuthBloc(getIt<AuthRepo>()))
 
-  //upload Image
+    //upload Image
     ..registerLazySingleton<UploadImageRepo>(
-          () => UploadImageRepo(getIt<UploadImageDataSource>()),
-    )..registerLazySingleton<UploadImageDataSource>(
-        () => UploadImageDataSource(getIt<ApiService>()),
-  )
+      () => UploadImageRepo(getIt<UploadImageDataSource>()),
+    )
+    ..registerLazySingleton<UploadImageDataSource>(
+      () => UploadImageDataSource(getIt<ApiService>()),
+    )
     ..registerFactory<UploadImageCubit>(
-          () => UploadImageCubit(getIt<UploadImageRepo>()),
+      () => UploadImageCubit(getIt<UploadImageRepo>()),
     )
 
-
-  //admin
+    //admin
     ..registerLazySingleton<AdminDashBoardRepo>(
-          () => AdminDashBoardRepo(getIt()),
-    )..registerLazySingleton<AdminProductDataSource>(
-        () => AdminProductDataSource(getIt<ApiService>()),
-  )
+      () => AdminDashBoardRepo(getIt()),
+    )
+    ..registerLazySingleton<AdminProductDataSource>(
+      () => AdminProductDataSource(getIt<ApiService>()),
+    )
     ..registerFactory<AdminProductsCubit>(
-          () => AdminProductsCubit(getIt<AdminDashBoardRepo>()),
+      () => AdminProductsCubit(getIt<AdminDashBoardRepo>()),
+    )
+    ..registerFactory<UsersNumberCubit>(
+      () => UsersNumberCubit(getIt<AdminDashBoardRepo>()),
+    )
+    ..registerFactory<CategoriesNumberCubit>(
+      () => CategoriesNumberCubit(getIt<AdminDashBoardRepo>()),
     )
 
- ..registerFactory<UsersNumberCubit>(
-  () => UsersNumberCubit(getIt<AdminDashBoardRepo>()),
-  )
-  ..registerFactory<CategoriesNumberCubit>(
-  () => CategoriesNumberCubit(getIt<AdminDashBoardRepo>()),
-  );
+  ..registerLazySingleton<CategoriesRepo>(
+        () => CategoriesRepo(getIt<GetCategoriesDataSource>()))
+  ..registerLazySingleton<GetCategoriesDataSource>(
+        () => GetCategoriesDataSource(getIt()))
+  ..registerLazySingleton<CategoriesBloc>(
+        () => CategoriesBloc(getIt()));
 }

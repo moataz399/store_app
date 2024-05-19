@@ -1,13 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'admin_categories_model.g.dart';
+part 'admin_categories_response.g.dart';
 
 @JsonSerializable()
-class AdminCategoriesResponseDashBoard {
-  AdminCategoriesResponseDashBoard(this.data);
+class AdminCategoriesResponse {
+  AdminCategoriesResponse(this.data);
 
-  factory AdminCategoriesResponseDashBoard.fromJson(Map<String, dynamic> json) =>
-      _$AdminCategoriesResponseDashBoardFromJson(json);
+  factory AdminCategoriesResponse.fromJson(Map<String, dynamic> json) =>
+      _$AdminCategoriesResponseFromJson(json);
 
   final AdminCategoriesData? data;
 
@@ -31,9 +31,11 @@ class AdminCategoriesData {
 
 @JsonSerializable()
 class AdminCategoriesModel {
-  AdminCategoriesModel(this.name);
+  AdminCategoriesModel(this.name,this.image, this.id);
 
   factory AdminCategoriesModel.fromJson(Map<String, dynamic> json) =>
       _$AdminCategoriesModelFromJson(json);
-  final String name;
+  final String? name;
+  final String? image;
+  final String? id;
 }

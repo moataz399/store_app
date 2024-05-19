@@ -1,19 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/widgets/custom_admin_container.dart';
 import 'package:store_app/core/widgets/custom_bottom_sheet.dart';
+import 'package:store_app/core/widgets/show_toast.dart';
 import 'package:store_app/core/widgets/text_app.dart';
+import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
 import 'package:store_app/features/admin/categories/presentation/widgets/edit_category_bottom_sheet.dart';
 
 class AdminCategoryItem extends StatelessWidget {
   const AdminCategoryItem(
-      {super.key, required this.title, required this.imageUrl});
+      {required this.title,
+      required this.imageUrl,
+      required this.id,
+      super.key});
 
   final String title;
   final String imageUrl;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +52,47 @@ class AdminCategoryItem extends StatelessWidget {
                       onPressed: () {
                         CustomBottomSheet.showBottomSheet(
                           context: context,
-                          widget: EditCategoryBottomSheetWidget(),
+                          widget: EditCategoryBottomSheetWidget(
+                            name: title,
+                            imgUrl: imageUrl,
+                          ),
                         );
                       },
                       icon: const Icon(Icons.edit),
                       color: Colors.green,
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.delete),
-                      color: Colors.red,
+                    BlocConsumer<CategoriesBloc, CategoriesState>(
+                      listener: (context, state) {
+                        state.whenOrNull(
+                          deletedSuccess: (data) {
+                            ShowToast.showToastSuccessTop(
+                              context: context,
+                              message:
+                                  context.translate('deleted Successfully'),
+                            );
+                            context.pop();
+                            print(data.data.deleteCategory);
+                          },
+                          deletedError: (error) {
+                            ShowToast.showToastErrorTop(
+                              context: context,
+                              message: error,
+                            );
+                          },
+                        );
+                      },
+                      builder: (context, state) {
+                        return IconButton(
+                          onPressed: () {
+                            context
+                                .read<CategoriesBloc>()
+                                .add(CategoriesEvent.deleteCategory(id: id));
+                            print('========================${id}');
+                          },
+                          icon: const Icon(Icons.delete),
+                          color: Colors.red,
+                        );
+                      },
                     ),
                   ],
                 ),

@@ -20,21 +20,22 @@ mixin _$CategoriesNumberState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminCategoriesResponse response) success,
+    required TResult Function(AdminCategoriesResponseDashBoard response)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminCategoriesResponse response)? success,
+    TResult? Function(AdminCategoriesResponseDashBoard response)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminCategoriesResponse response)? success,
+    TResult Function(AdminCategoriesResponseDashBoard response)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,7 +122,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminCategoriesResponse response) success,
+    required TResult Function(AdminCategoriesResponseDashBoard response)
+        success,
   }) {
     return loading();
   }
@@ -131,7 +133,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminCategoriesResponse response)? success,
+    TResult? Function(AdminCategoriesResponseDashBoard response)? success,
   }) {
     return loading?.call();
   }
@@ -141,7 +143,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminCategoriesResponse response)? success,
+    TResult Function(AdminCategoriesResponseDashBoard response)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -255,7 +257,8 @@ class _$ErrorStateImpl implements ErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminCategoriesResponse response) success,
+    required TResult Function(AdminCategoriesResponseDashBoard response)
+        success,
   }) {
     return error(this.error);
   }
@@ -265,7 +268,7 @@ class _$ErrorStateImpl implements ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminCategoriesResponse response)? success,
+    TResult? Function(AdminCategoriesResponseDashBoard response)? success,
   }) {
     return error?.call(this.error);
   }
@@ -275,7 +278,7 @@ class _$ErrorStateImpl implements ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminCategoriesResponse response)? success,
+    TResult Function(AdminCategoriesResponseDashBoard response)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -334,7 +337,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AdminCategoriesResponse response});
+  $Res call({AdminCategoriesResponseDashBoard response});
 }
 
 /// @nodoc
@@ -354,7 +357,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       response: null == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as AdminCategoriesResponse,
+              as AdminCategoriesResponseDashBoard,
     ));
   }
 }
@@ -365,7 +368,7 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl({required this.response});
 
   @override
-  final AdminCategoriesResponse response;
+  final AdminCategoriesResponseDashBoard response;
 
   @override
   String toString() {
@@ -395,7 +398,8 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminCategoriesResponse response) success,
+    required TResult Function(AdminCategoriesResponseDashBoard response)
+        success,
   }) {
     return success(response);
   }
@@ -405,7 +409,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminCategoriesResponse response)? success,
+    TResult? Function(AdminCategoriesResponseDashBoard response)? success,
   }) {
     return success?.call(response);
   }
@@ -415,7 +419,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminCategoriesResponse response)? success,
+    TResult Function(AdminCategoriesResponseDashBoard response)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -460,10 +464,11 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements CategoriesNumberState {
-  const factory Success({required final AdminCategoriesResponse response}) =
+  const factory Success(
+          {required final AdminCategoriesResponseDashBoard response}) =
       _$SuccessImpl;
 
-  AdminCategoriesResponse get response;
+  AdminCategoriesResponseDashBoard get response;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;

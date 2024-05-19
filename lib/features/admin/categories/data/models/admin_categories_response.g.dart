@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'admin_categories_model.dart';
+part of 'admin_categories_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-AdminCategoriesResponseDashBoard _$AdminCategoriesResponseDashBoardFromJson(
+AdminCategoriesResponse _$AdminCategoriesResponseFromJson(
         Map<String, dynamic> json) =>
-    AdminCategoriesResponseDashBoard(
+    AdminCategoriesResponse(
       json['data'] == null
           ? null
           : AdminCategoriesData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AdminCategoriesResponseDashBoardToJson(
-        AdminCategoriesResponseDashBoard instance) =>
+Map<String, dynamic> _$AdminCategoriesResponseToJson(
+        AdminCategoriesResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -36,11 +36,15 @@ Map<String, dynamic> _$AdminCategoriesDataToJson(
 AdminCategoriesModel _$AdminCategoriesModelFromJson(
         Map<String, dynamic> json) =>
     AdminCategoriesModel(
-      json['name'] as String,
+      json['name'] as String?,
+      json['image'] as String?,
+      json['id'] as String?,
     );
 
 Map<String, dynamic> _$AdminCategoriesModelToJson(
         AdminCategoriesModel instance) =>
     <String, dynamic>{
       'name': instance.name,
+      'image': instance.image,
+      'id': instance.id,
     };

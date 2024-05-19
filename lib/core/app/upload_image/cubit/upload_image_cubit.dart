@@ -17,6 +17,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
 
   ///pick image and upload it to server
   Future<void> uploadImage() async {
+    imageUrl = '';
     final file = await PickImageUtils().pickImage();
 
     if (file == null) {

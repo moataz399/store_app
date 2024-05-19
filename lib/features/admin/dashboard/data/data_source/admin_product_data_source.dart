@@ -15,9 +15,9 @@ class AdminProductDataSource {
     return result;
   }
 
-  Future<AdminCategoriesResponse> getCategoriesNumber() async {
+  Future<AdminCategoriesResponseDashBoard> getCategoriesNumber() async {
     final result =
-        await apiService.getCategoriesNumber(AdminQueries().categoriesQuery());
+        await apiService.getCategoriesNumber(AdminQueries().categoriesNumberQuery());
     return result;
   }
 

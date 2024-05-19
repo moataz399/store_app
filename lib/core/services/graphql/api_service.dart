@@ -2,6 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_app/core/app/upload_image/upload_image_response.dart';
+import 'package:store_app/features/admin/categories/data/models/add_category_response.dart';
+import 'package:store_app/features/admin/categories/data/models/admin_categories_response.dart';
+import 'package:store_app/features/admin/categories/data/models/delete_category_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/admin_categories_model.dart';
 import 'package:store_app/features/admin/dashboard/data/models/admin_users_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/product_admin_model.dart';
@@ -34,11 +37,30 @@ abstract class ApiService {
   Future<UploadImageResponse> uploadImage(@Body() FormData formData);
 
   @POST(graphql)
-  Future<AdminProductResponse> getAdminProducts(@Body() Map<String, dynamic> mutation);
-  @POST(graphql)
-  Future<AdminUsersResponse> getUsersNumber(@Body() Map<String, dynamic> mutation);
+  Future<AdminProductResponse> getAdminProducts(
+      @Body() Map<String, dynamic> mutation);
 
   @POST(graphql)
-  Future<AdminCategoriesResponse> getCategoriesNumber(
+  Future<AdminUsersResponse> getUsersNumber(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<AdminCategoriesResponseDashBoard> getCategoriesNumber(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<AdminCategoriesResponse> getCategories(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<DeleteCategoryResponse> deleteCategory(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<AddCategoryResponse> createCategory(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(graphql)
+  Future<AddCategoryResponse> editCategory(
       @Body() Map<String, dynamic> mutation);
 }

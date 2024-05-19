@@ -7,5 +7,5 @@ class CategoriesNumberState with _$CategoriesNumberState {
   const factory CategoriesNumberState.error({required String error}) = ErrorState;
 
   const factory CategoriesNumberState.success(
-      {required AdminCategoriesResponse response}) = Success;
+      {required AdminCategoriesResponseDashBoard response}) = Success;
 }
