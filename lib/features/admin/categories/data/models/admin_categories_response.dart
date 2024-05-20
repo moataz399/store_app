@@ -9,13 +9,19 @@ class AdminCategoriesResponse {
   factory AdminCategoriesResponse.fromJson(Map<String, dynamic> json) =>
       _$AdminCategoriesResponseFromJson(json);
 
-  final AdminCategoriesData? data;
+  final AdminCategoriesData data;
 
   String get categoriesNumber {
-    if (data!.categories!.isEmpty) {
+    if (data!.categories.isEmpty) {
       return '0';
     }
-    return data!.categories!.length.toString();
+    return data!.categories.length.toString();
+  }
+
+
+  List<String> get categoryDropdownList {
+    final list = data.categories.map((e) => e.name ?? '').toList();
+    return list;
   }
 }
 
@@ -26,7 +32,8 @@ class AdminCategoriesData {
   factory AdminCategoriesData.fromJson(Map<String, dynamic> json) =>
       _$AdminCategoriesDataFromJson(json);
 
-  final List<AdminCategoriesModel>? categories;
+  final List<AdminCategoriesModel> categories;
+
 }
 
 @JsonSerializable()

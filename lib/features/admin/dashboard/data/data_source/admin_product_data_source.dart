@@ -9,7 +9,7 @@ class AdminProductDataSource {
 
   final ApiService apiService;
 
-  Future<AdminProductResponse> getProductsNumber() async {
+  Future<ProductsNumberResponse> getProductsNumber() async {
     final result =
         await apiService.getAdminProducts(AdminQueries().productsQuery());
     return result;

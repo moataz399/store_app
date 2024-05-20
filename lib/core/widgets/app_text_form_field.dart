@@ -18,6 +18,7 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.onChanged,
+    this.maxLines
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
@@ -25,6 +26,7 @@ class AppTextFormField extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
   final String hintText;
+  final int? maxLines;
   final bool? isObscureText;
   final Widget? suffixIcon;
   final Color? backgroundColor;
@@ -35,6 +37,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(

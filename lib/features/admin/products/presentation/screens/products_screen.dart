@@ -1,75 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/app/upload_image/cubit/upload_image_cubit.dart';
+import 'package:store_app/core/di/dependency_injection.dart';
 import 'package:store_app/core/helpers/extensions.dart';
-import 'package:store_app/core/helpers/spacing.dart';
 import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/style/colors/colors_dark.dart';
+import 'package:store_app/core/widgets/AdminAppBar.dart';
+import 'package:store_app/core/widgets/custom_bottom_sheet.dart';
 import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
-import 'package:store_app/features/admin/categories/presentation/widgets/admin_category_item.dart';
-import 'package:store_app/features/admin/products/presentation/cubit/admin_products_cubit.dart';
-
-import '../../../../../core/widgets/AdminAppBar.dart';
+import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
+import 'package:store_app/features/admin/products/presentation/bloc/create_product_bloc/create_peoduct_bloc.dart';
+import 'package:store_app/features/admin/products/presentation/screens/products_body.dart';
+import 'package:store_app/features/admin/products/presentation/widgets/create_product_bottom_sheet.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsDark.mainColor,
-      appBar: AdminAppBar(
-        isMain: true,
-        backgroundColor: ColorsDark.mainColor,
-        title: context.translate(LangKeys.products),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-        child: Column(
-          children: [
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: () async {},
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: verticalSpace(20),
-                    ),
-                    SliverToBoxAdapter(
-                      child:
-                          BlocBuilder<AdminProductsCubit, AdminProductsState>(
-                        builder: (context, state) => state.maybeWhen(
-                          loading: () {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          },
-                          error: (error) {
-                            return Column(
-                              children: [
-                                const Icon(
-                                  Icons.error,
-                                  size: 40,
-                                ),
-                                Text(
-                                  error,
-                                  style: const TextStyle(fontSize: 40),
-                                ),
-                              ],
-                            );
-                          },
-                          orElse: () {
-                            return const SizedBox();
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<AdminProductsBloc>()
+            ..add(
+              const AdminProductsEvent.getAllProducts(isNotLoading: false),
             ),
-          ],
         ),
+      ],
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+
+          onPressed: () {
+            CustomBottomSheet.showBottomSheet(
+              context: context,
+              widget: MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => getIt<CreateProductBloc>(),
+                  ),
+                  BlocProvider(
+                    create: (context) => getIt<UploadImageCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (context) => getIt<CategoriesBloc>()
+                      ..add(
+                        const CategoriesEvent.getCategories(),
+                      ),
+                  ),
+                ],
+                child: const CreateProductBottomSheet(),
+              ),
+              whenComplete: () {
+                context.read<AdminProductsBloc>().add(
+                      const AdminProductsEvent.getAllProducts(
+                        isNotLoading: false,
+                      ),
+                    );
+              },
+            );
+          },
+          backgroundColor: context.color.navBarbg,
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: ColorsDark.mainColor,
+        appBar: AdminAppBar(
+          isMain: true,
+          backgroundColor: ColorsDark.mainColor,
+          title: context.translate(LangKeys.products),
+        ),
+        body: const ProductsBody(),
       ),
     );
   }

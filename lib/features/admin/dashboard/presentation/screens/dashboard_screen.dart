@@ -8,9 +8,9 @@ import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/style/colors/colors_dark.dart';
 import 'package:store_app/core/widgets/AdminAppBar.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
+import 'package:store_app/features/admin/dashboard/presentation/cubits/products_cubit/admin_products_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cubit/users_number_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/widgets/admin_container.dart';
-import 'package:store_app/features/admin/products/presentation/cubit/admin_products_cubit.dart';
 
 class DashboardScreen extends StatelessWidget {
 
@@ -21,7 +21,7 @@ class DashboardScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<AdminProductsCubit>()..getProductsNumber(),
+          create: (context) => getIt<ProductsNumberCubit>()..getProductsNumber(),
         ),
         BlocProvider(
           create: (context) => getIt<CategoriesNumberCubit>()..getCategories(),
@@ -40,7 +40,7 @@ class DashboardScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
           child: Column(
             children: [
-              BlocBuilder<AdminProductsCubit, AdminProductsState>(
+              BlocBuilder<ProductsNumberCubit, AdminProductsState>(
                 builder: (context, state) {
                   return state.when(
                     error: (error) {

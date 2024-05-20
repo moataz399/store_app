@@ -131,7 +131,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<AdminProductResponse> getAdminProducts(
+  Future<ProductsNumberResponse> getAdminProducts(
       Map<String, dynamic> mutation) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -139,7 +139,7 @@ class _ApiService implements ApiService {
     final _data = <String, dynamic>{};
     _data.addAll(mutation);
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AdminProductResponse>(Options(
+        _setStreamType<ProductsNumberResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -155,7 +155,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AdminProductResponse.fromJson(_result.data!);
+    final value = ProductsNumberResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -306,6 +306,110 @@ class _ApiService implements ApiService {
 
   @override
   Future<void> editCategory(Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'graphql',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
+  Future<AdminProductsResponse> getAllProducts(
+      Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AdminProductsResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = AdminProductsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> createProduct(Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'graphql',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
+  Future<void> deleteProduct(Map<String, dynamic> mutation) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mutation);
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'graphql',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
+  Future<void> updateProduct(Map<String, dynamic> mutation) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

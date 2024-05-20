@@ -8,5 +8,5 @@ class AdminProductsState with _$AdminProductsState {
   const factory AdminProductsState.error({required String error}) = ErrorState;
 
   const factory AdminProductsState.success(
-      {required AdminProductResponse adminProductModel}) = Success;
+      {required ProductsNumberResponse adminProductModel}) = Success;
 }

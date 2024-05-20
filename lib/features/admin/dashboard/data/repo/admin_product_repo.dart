@@ -10,7 +10,7 @@ class AdminDashBoardRepo {
 
   final AdminProductDataSource adminDataSource;
 
-  Future<ApiResult<AdminProductResponse>> getProducts() async {
+  Future<ApiResult<ProductsNumberResponse>> getProducts() async {
     try {
       final result = await adminDataSource.getProductsNumber();
       return ApiResult.success(result);

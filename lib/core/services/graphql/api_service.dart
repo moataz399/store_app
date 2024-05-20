@@ -14,6 +14,8 @@ import 'package:store_app/features/auth/data/models/register_response.dart';
 
 import 'package:store_app/features/auth/data/models/user_role_response.dart';
 
+import '../../../features/admin/products/data/models/admin_products_response.dart';
+
 part 'api_service.g.dart';
 
 const String graphql = 'graphql';
@@ -38,7 +40,7 @@ abstract class ApiService {
   Future<UploadImageResponse> uploadImage(@Body() FormData formData);
 
   @POST(graphql)
-  Future<AdminProductResponse> getAdminProducts(
+  Future<ProductsNumberResponse> getAdminProducts(
       @Body() Map<String, dynamic> mutation);
 
   @POST(graphql)
@@ -66,8 +68,25 @@ abstract class ApiService {
       @Body() Map<String, dynamic> mutation);
 
 
+  //products
+  @POST(graphql)
+  Future<AdminProductsResponse> getAllProducts(
+      @Body() Map<String, dynamic> mutation);
 
+  @POST(graphql)
+  Future<void> createProduct(
+      @Body() Map<String, dynamic> mutation,
+      );
 
+  @POST(graphql)
+  Future<void> deleteProduct(
+      @Body() Map<String, dynamic> mutation,
+      );
+
+  @POST(graphql)
+  Future<void> updateProduct(
+      @Body() Map<String, dynamic> mutation,
+      );
   ///users
 
   @POST(graphql)
@@ -76,5 +95,8 @@ abstract class ApiService {
   @POST(graphql)
   Future<void> deleteUser(
       @Body() Map<String, dynamic> mutation);
+
+
+
 
 }
