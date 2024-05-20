@@ -17,6 +17,7 @@ import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cub
 import 'package:store_app/features/admin/products/data/repos/admin_products_repo.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/create_product_bloc/create_peoduct_bloc.dart';
+import 'package:store_app/features/admin/products/presentation/bloc/delete_bloc/delete_product_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/update_bloc/update_product_bloc.dart';
 import 'package:store_app/features/admin/users/data/data_source/users_data_source.dart';
 import 'package:store_app/features/admin/users/data/repos/users_repo.dart';
@@ -103,5 +104,6 @@ Future<void> setUpGetIt() async {
     ..registerLazySingleton<UsersDataSource>(() => UsersDataSource(getIt()))
     ..registerFactory<DeleteUserBloc>(() => DeleteUserBloc(getIt()))
     ..registerFactory<UsersBloc>(() => UsersBloc(getIt()))
+    ..registerFactory<DeleteProductBloc>(() => DeleteProductBloc(getIt()))
     ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()));
 }

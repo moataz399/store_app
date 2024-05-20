@@ -14,6 +14,7 @@ import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/update_bloc/update_product_bloc.dart';
+import 'package:store_app/features/admin/products/presentation/widgets/delete_product_widget.dart';
 import 'package:store_app/features/admin/products/presentation/widgets/update_product_bottom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
@@ -50,10 +51,10 @@ class ProductAdminItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //Delete Button
-              // DeleteProductWidget(
-              //   productId: productId,
-              // ),
+             // Delete Button
+              DeleteProductWidget(
+                productId: productId,
+              ),
               //Update Button
               IconButton(
                 onPressed: () {

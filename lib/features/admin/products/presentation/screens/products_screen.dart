@@ -10,6 +10,7 @@ import 'package:store_app/core/widgets/custom_bottom_sheet.dart';
 import 'package:store_app/features/admin/categories/presentation/bloc/categories_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/create_product_bloc/create_peoduct_bloc.dart';
+import 'package:store_app/features/admin/products/presentation/bloc/delete_bloc/delete_product_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/screens/products_body.dart';
 import 'package:store_app/features/admin/products/presentation/widgets/create_product_bottom_sheet.dart';
 
@@ -20,11 +21,13 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => getIt<DeleteProductBloc>()),
         BlocProvider(
           create: (context) => getIt<AdminProductsBloc>()
             ..add(
               const AdminProductsEvent.getAllProducts(isNotLoading: false),
             ),
+
         ),
       ],
       child: Scaffold(
