@@ -30,6 +30,7 @@ class UpdateProductImages extends StatelessWidget {
               success: () {
                 ShowToast.showToastSuccessTop(
                   context: context,
+                  seconds: 1,
                   message: context.translate(LangKeys.imageUploaded),
                 );
               },

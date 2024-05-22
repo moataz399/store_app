@@ -29,6 +29,7 @@ import 'package:store_app/features/auth/data/repos/auth_repo.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
 
 import '../../features/admin/categories/data/data_source/get_categories_data_source.dart';
+import '../../features/admin/notifications/presentation/blocs/get_all_notification_admin_bloc/get_all_notification_admin_bloc.dart';
 import '../../features/admin/products/data/data_source/products_data_source.dart';
 
 final getIt = GetIt.instance;
@@ -109,5 +110,6 @@ Future<void> setUpGetIt() async {
     ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()))
 
   //notifications
-  ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc());
+  ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc())
+  ..registerFactory<GetAllNotificationAdminBloc>(() => GetAllNotificationAdminBloc());
 }

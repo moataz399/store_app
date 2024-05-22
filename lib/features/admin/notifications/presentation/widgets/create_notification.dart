@@ -10,6 +10,7 @@ import 'package:store_app/core/widgets/custom_bottom_sheet.dart';
 import 'package:store_app/core/widgets/custom_button.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/admin/notifications/presentation/blocs/add_notification_bloc/add_notification_bloc.dart';
+import 'package:store_app/features/admin/notifications/presentation/blocs/get_all_notification_admin_bloc/get_all_notification_admin_bloc.dart';
 
 import 'package:store_app/features/admin/notifications/presentation/widgets/create_notification_bottom_sheet.dart';
 
@@ -39,11 +40,11 @@ class CreateNotification extends StatelessWidget {
                 create: (context) => getIt<AddNotificationBloc>(),
                 child: const CreateNotificationBottomSheet(),
               ),
-              // whenComplete: () {
-              //   context.read<GetAllNotificationAdminBloc>().add(
-              //         const GetAllNotificationAdminEvent.getAllNotificion(),
-              //       );
-              // },
+              whenComplete: () {
+                context.read<GetAllNotificationAdminBloc>().add(
+                      const GetAllNotificationAdminEvent.getAllNotification(),
+                    );
+              },
             );
           },
           backgroundColor: ColorsDark.blueDark,

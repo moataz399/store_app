@@ -16,6 +16,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   String imageUrl = '';
   List<String> imageList = ['', '', ''];
   List<String> imageUpdateList = [];
+
   ///pick image and upload it to server
   Future<void> uploadImage() async {
     imageUrl = '';
@@ -29,6 +30,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
 
       response.when(
         success: (image) {
+
           imageUrl = image.location ?? '';
           emit(const UploadImageState.success());
         },
@@ -38,6 +40,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
       );
     }
   }
+
 // pick image and save it in file and upload it to server with List
   Future<void> uploadImageList({required int indexId}) async {
     final pickedImage = await PickImageUtils().pickImage();
@@ -69,7 +72,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
 
     emit(UploadImageState.loadingList(indexId));
     final result = await uploadImageRepo.uploadImage(pickedImage);
-
+    print('Uploaded and replaced');
     result.when(
       success: (image) {
         imageUpdateList = productImageList;
