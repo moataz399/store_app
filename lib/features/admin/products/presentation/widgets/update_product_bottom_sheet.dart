@@ -273,10 +273,8 @@ class _UpdateProductBottomSheetState extends State<UpdateProductBottomSheet> {
   }
 
   void _validUpdateProduct(BuildContext context) {
-    print("walid => ${double.parse(categoryValueId!)}");
     if (fromKey.currentState!.validate()) {
-      //update category
-
+      //update Product
       context.read<UpdateProductBloc>().add(
             UpdateProductEvent.updateProduct(
               body: UpdateProductRequestBody(

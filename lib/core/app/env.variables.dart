@@ -8,6 +8,7 @@ class EnvVariable {
   static final EnvVariable instance = EnvVariable._();
 
   String _envType = '';
+  String _notificationBaseUrl = '';
 
   Future<void> init({required EnvTypeEnum envType}) async {
     switch (envType) {
@@ -21,8 +22,10 @@ class EnvVariable {
         );
 
         _envType = dotenv.get('ENV_TYPE');
+        _notificationBaseUrl = dotenv.get('NOTIFICATION_BASE_URL');
     }
   }
 
   bool get debugMode => _envType == 'env';
+  String  get notificationBaseUrl  => _notificationBaseUrl ;
 }

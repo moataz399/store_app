@@ -14,6 +14,7 @@ import 'package:store_app/features/admin/dashboard/data/repo/admin_product_repo.
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/products_cubit/admin_products_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cubit/users_number_cubit.dart';
+import 'package:store_app/features/admin/notifications/presentation/blocs/add_notification_bloc/add_notification_bloc.dart';
 import 'package:store_app/features/admin/products/data/repos/admin_products_repo.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/create_product_bloc/create_peoduct_bloc.dart';
@@ -105,5 +106,8 @@ Future<void> setUpGetIt() async {
     ..registerFactory<DeleteUserBloc>(() => DeleteUserBloc(getIt()))
     ..registerFactory<UsersBloc>(() => UsersBloc(getIt()))
     ..registerFactory<DeleteProductBloc>(() => DeleteProductBloc(getIt()))
-    ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()));
+    ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()))
+
+  //notifications
+  ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc());
 }
