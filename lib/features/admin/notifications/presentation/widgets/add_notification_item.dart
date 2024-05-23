@@ -8,6 +8,9 @@ import 'package:store_app/core/style/fonts/font_family_helper.dart';
 import 'package:store_app/core/widgets/custom_admin_container.dart';
 import 'package:store_app/core/widgets/text_app.dart';
 import 'package:store_app/features/admin/notifications/data/models/add_notification_model.dart';
+import 'package:store_app/features/admin/notifications/presentation/widgets/delete_notification_widget.dart';
+import 'package:store_app/features/admin/notifications/presentation/widgets/edit_notification_widget.dart';
+import 'package:store_app/features/admin/notifications/presentation/widgets/send_notification_widget.dart';
 
 class AddNotificationItem extends StatelessWidget {
   const AddNotificationItem({
@@ -46,24 +49,24 @@ class AddNotificationItem extends StatelessWidget {
               body: notificationModel.createAt.getFormatDayMonthYear(),
             ),
             const Spacer(),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // //delete notification
-                // DeleteNotificationWidget(
-                //   notificationModel: notificationModel,
-                // ),
-                // SizedBox(width: 40.w),
-                // //Edit notification
-                // EditNotification(
-                //   notificationModel: notificationModel,
-                // ),
-                // SizedBox(width: 40.w),
-                // //send notification
-                // SendNotificationWidget(
-                //   notificationModel: notificationModel,
-                //   index: index,
-                // ),
+                //delete notification
+                DeleteNotificationWidget(
+                  notificationModel: notificationModel,
+                ),
+                SizedBox(width: 40.w),
+                //Edit notification
+                EditNotification(
+                  notificationModel: notificationModel,
+                ),
+                SizedBox(width: 40.w),
+                //send notification
+                SendNotificationWidget(
+                  notificationModel: notificationModel,
+                  index: index,
+                ),
               ],
             )
           ],

@@ -14,7 +14,10 @@ import 'package:store_app/features/admin/dashboard/data/repo/admin_product_repo.
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/products_cubit/admin_products_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cubit/users_number_cubit.dart';
+import 'package:store_app/features/admin/notifications/data/data_source/send_notification_data_source.dart';
+import 'package:store_app/features/admin/notifications/data/repo/repo.dart';
 import 'package:store_app/features/admin/notifications/presentation/blocs/add_notification_bloc/add_notification_bloc.dart';
+import 'package:store_app/features/admin/notifications/presentation/blocs/send_notification_bloc/send_notification_bloc.dart';
 import 'package:store_app/features/admin/products/data/repos/admin_products_repo.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/admin_products_bloc.dart';
 import 'package:store_app/features/admin/products/presentation/bloc/create_product_bloc/create_peoduct_bloc.dart';
@@ -104,12 +107,18 @@ Future<void> setUpGetIt() async {
       () => UsersRepo(getIt<UsersDataSource>()),
     )
     ..registerLazySingleton<UsersDataSource>(() => UsersDataSource(getIt()))
+    ..registerLazySingleton<SendNotificationDataSource>(
+        () => SendNotificationDataSource())
+    ..registerLazySingleton<SendNotificationRepo>(
+        () => SendNotificationRepo(getIt()))
     ..registerFactory<DeleteUserBloc>(() => DeleteUserBloc(getIt()))
     ..registerFactory<UsersBloc>(() => UsersBloc(getIt()))
     ..registerFactory<DeleteProductBloc>(() => DeleteProductBloc(getIt()))
     ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()))
 
-  //notifications
-  ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc())
-  ..registerFactory<GetAllNotificationAdminBloc>(() => GetAllNotificationAdminBloc());
+    //notifications
+    ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc())
+    ..registerFactory<SendNotificationBloc>(() => SendNotificationBloc(getIt()))
+    ..registerFactory<GetAllNotificationAdminBloc>(
+        () => GetAllNotificationAdminBloc());
 }

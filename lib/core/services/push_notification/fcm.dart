@@ -67,7 +67,7 @@ class FirebaseCloudMessaging {
   }
 
   Future<void> sendTopicNotification(
-      {required String title, required String body}) async {
+      {required String title, required String body,required int productId }) async {
     try {
       final response = Dio().post<dynamic>(
         EnvVariable.instance.notificationBaseUrl,
@@ -85,6 +85,7 @@ class FirebaseCloudMessaging {
           'notification': {
             'title': title,
             'body': body,
+            'product_id': productId,
           },
         },
       );
