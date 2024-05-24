@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                                   PrefKeys.userRole,
                                 ) !=
                                 'admin'
-                            ? Routes.homeScreen
+                            ? Routes.mainScreen
                             : Routes.homeAdminScreen
                         : Routes.loginScreen,
                     onGenerateRoute: appRouter.generateRoute,

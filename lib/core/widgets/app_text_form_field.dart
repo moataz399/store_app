@@ -37,7 +37,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: maxLines,
+      maxLines: maxLines??1,
       onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(

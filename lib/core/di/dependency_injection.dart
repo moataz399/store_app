@@ -30,6 +30,10 @@ import 'package:store_app/features/admin/users/presentation/bloc/users_bloc.dart
 import 'package:store_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:store_app/features/auth/data/repos/auth_repo.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:store_app/features/client/main/ui/cubit/main_cubit.dart';
+import 'package:store_app/features/client/profile/data/data_source/profile_data_source.dart';
+import 'package:store_app/features/client/profile/data/repos/profile_repo.dart';
+import 'package:store_app/features/client/profile/ui/bloc/profile_bloc.dart';
 
 import '../../features/admin/categories/data/data_source/get_categories_data_source.dart';
 import '../../features/admin/notifications/presentation/blocs/get_all_notification_admin_bloc/get_all_notification_admin_bloc.dart';
@@ -108,17 +112,31 @@ Future<void> setUpGetIt() async {
     )
     ..registerLazySingleton<UsersDataSource>(() => UsersDataSource(getIt()))
     ..registerLazySingleton<SendNotificationDataSource>(
-        () => SendNotificationDataSource())
+      SendNotificationDataSource.new,
+    )
     ..registerLazySingleton<SendNotificationRepo>(
-        () => SendNotificationRepo(getIt()))
+      () => SendNotificationRepo(getIt()),
+    )
     ..registerFactory<DeleteUserBloc>(() => DeleteUserBloc(getIt()))
     ..registerFactory<UsersBloc>(() => UsersBloc(getIt()))
     ..registerFactory<DeleteProductBloc>(() => DeleteProductBloc(getIt()))
     ..registerFactory<UpdateProductBloc>(() => UpdateProductBloc(getIt()))
 
     //notifications
-    ..registerFactory<AddNotificationBloc>(() => AddNotificationBloc())
+    ..registerFactory<AddNotificationBloc>(AddNotificationBloc.new)
     ..registerFactory<SendNotificationBloc>(() => SendNotificationBloc(getIt()))
     ..registerFactory<GetAllNotificationAdminBloc>(
-        () => GetAllNotificationAdminBloc());
+      GetAllNotificationAdminBloc.new,
+    )
+
+    //profile
+
+    ..registerLazySingleton<ProfileRepo>(
+        () => ProfileRepo(getIt<ProfileDataSource>()))
+    ..registerLazySingleton<ProfileDataSource>(
+      () => ProfileDataSource(getIt<ApiService>()),
+    )
+    ..registerFactory<ProfileBloc>(() => ProfileBloc(getIt<ProfileRepo>()))
+    //customer
+    ..registerFactory<MainCubit>(MainCubit.new);
 }
