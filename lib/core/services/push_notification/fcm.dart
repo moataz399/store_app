@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/core/app/env.variables.dart';
+import 'package:store_app/core/helpers/extensions.dart';
+import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/widgets/show_toast.dart';
 
 class FirebaseCloudMessaging {
   factory FirebaseCloudMessaging() => _instance;
@@ -22,14 +25,26 @@ class FirebaseCloudMessaging {
     await handleNotificationsPermission();
   }
 
-  Future<void> controllerForUserSubscription() async {
+  Future<void> controllerForUserSubscription(BuildContext context) async {
     if (isNotificationPermissionEnabled == false) {
       await handleNotificationsPermission();
     } else {
       if (isNotificationEnabled.value == false) {
         await subscribeNotification();
+        if (!context.mounted) return;
+        ShowToast.showToastSuccessTop(
+          context: context,
+          message: context.translate(LangKeys.subscribedToNotifications),
+          seconds: 2,
+        );
       } else {
         await unSubscribeNotification();
+        if (!context.mounted) return;
+        ShowToast.showToastSuccessTop(
+          context: context,
+          message: context.translate(LangKeys.unsubscribedToNotifications),
+          seconds: 2,
+        );
       }
     }
   }
@@ -67,7 +82,9 @@ class FirebaseCloudMessaging {
   }
 
   Future<void> sendTopicNotification(
-      {required String title, required String body,required int productId }) async {
+      {required String title,
+      required String body,
+      required int productId}) async {
     try {
       final response = Dio().post<dynamic>(
         EnvVariable.instance.notificationBaseUrl,

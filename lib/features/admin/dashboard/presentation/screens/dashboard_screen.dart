@@ -126,36 +126,6 @@ class DashboardScreen extends StatelessWidget {
                   );
                 },
               ),
-              TextButton(
-                onPressed: () async {
-                  final token = await FirebaseMessaging.instance.getToken();
-                  print(token);
-                },
-                child: const Text(
-                  'Get Token',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ),
-              ValueListenableBuilder(
-                  valueListenable:
-                      FirebaseCloudMessaging().isNotificationEnabled,
-                  builder: (_, value, __) => Row(
-                        children: [
-                          Text(
-                            value ? 'subscribe' : 'unsubscribe',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Switch(
-                            value: value,
-                            inactiveTrackColor: Colors.grey,
-                            activeTrackColor: Colors.green,
-                            onChanged: (value) {
-                              FirebaseCloudMessaging()
-                                  .controllerForUserSubscription();
-                            },
-                          ),
-                        ],
-                      ))
             ],
           ),
         ),
