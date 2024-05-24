@@ -8,6 +8,7 @@ import 'package:store_app/features/client/profile/ui/bloc/profile_bloc.dart';
 import 'package:store_app/features/client/profile/ui/widgets/change_language_widget.dart';
 import 'package:store_app/features/client/profile/ui/widgets/change_light_mode.dart';
 import 'package:store_app/features/client/profile/ui/widgets/change_notification_widget.dart';
+import 'package:store_app/features/client/profile/ui/widgets/logout_widget.dart';
 import 'package:store_app/features/client/profile/ui/widgets/user_profile_info.dart';
 import 'package:store_app/features/client/profile/ui/widgets/user_profile_shimmer.dart';
 
@@ -47,7 +48,10 @@ class ProfileScreen extends StatelessWidget {
               verticalSpace(20),
               const CustomFadeInRight(duration: 400, child: ChangeLightMode()),
               verticalSpace(20),
-              const ChangeNotifications(),
+              const CustomFadeInRight(
+                  duration: 400, child: ChangeNotifications()),
+              verticalSpace(20),
+              const CustomFadeInRight(duration: 400, child: LogOutWidget()),
             ],
           ),
         ),
