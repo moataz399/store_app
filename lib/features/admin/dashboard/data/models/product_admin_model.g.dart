@@ -6,16 +6,16 @@ part of 'product_admin_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AdminProductResponse _$AdminProductResponseFromJson(
+ProductsNumberResponse _$ProductsNumberResponseFromJson(
         Map<String, dynamic> json) =>
-    AdminProductResponse(
+    ProductsNumberResponse(
       json['data'] == null
           ? null
           : AdminProductsData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AdminProductResponseToJson(
-        AdminProductResponse instance) =>
+Map<String, dynamic> _$ProductsNumberResponseToJson(
+        ProductsNumberResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
     };

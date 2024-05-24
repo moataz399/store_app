@@ -7,7 +7,7 @@ import 'package:store_app/features/admin/home_admin_screen.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:store_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:store_app/features/auth/presentation/screens/register_screen.dart';
-import 'package:store_app/features/client/home_client_screen.dart';
+import 'package:store_app/features/client/main/ui/screen/main_screen.dart';
 
 class AppRouter {
   AppRouter();
@@ -36,9 +36,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomeAdminScreen(),
         );
-      case Routes.homeScreen:
+      case Routes.mainScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeCustomerScreen(),
+          builder: (_) => const MainScreen(),
         );
 
       default:

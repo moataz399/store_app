@@ -1,6 +1,8 @@
 import 'package:store_app/features/admin/categories/data/models/add_category_request_body.dart';
 import 'package:store_app/features/admin/categories/data/models/admin_categories_response.dart';
 import 'package:store_app/features/admin/categories/data/models/edit_category_request_body.dart';
+import 'package:store_app/features/admin/products/data/models/create_product_request_body.dart';
+import 'package:store_app/features/admin/products/data/models/update_product_request_body.dart';
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
 import 'package:store_app/features/auth/data/models/register_request_body.dart';
 
@@ -116,4 +118,140 @@ class AdminQueries {
       },
     };
   }
+
+  Map<String, dynamic> getUsersQuery() {
+    return {
+      'query': '''
+                  {
+             users{
+		                id
+		                name
+		                email
+  }
+}
+     ''',
+    };
+  }
+
+  Map<String, dynamic> deleteUser({required String id}) {
+    return {
+      'query': r'''
+                 mutation Delete($id: ID!){
+	deleteUser(id: $id)
+}
+
+     ''',
+      'variables': {
+        'id': id,
+      },
+    };
+  }
+
+  Map<String, dynamic> allProducts() {
+    return {
+      'query': '''
+       {
+            products{
+              id
+              title
+              price
+              images
+              description
+              category{
+                id
+                name
+                }
+            }
+          }
+     ''',
+    };
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Map<String, dynamic> createProductMap(
+      {required CreateProductRequestBody body}) {
+    return {
+      'query': r'''
+          mutation CreateProduct($title: String!, $price: Float!, $description:String!, $categoryId: Float!,$imagesList:[String!]!  ) {
+              addProduct(
+                data: {
+                  title: $title,
+                  price: $price
+                  description: $description
+                  categoryId: $categoryId
+                  images: $imagesList
+                }
+              ) {
+                title
+              }
+            }
+        ''',
+      'variables': {
+        'title': body.title,
+        'price': body.price,
+        'description': body.description,
+        'categoryId': body.categoryId,
+        'imagesList': body.imageList,
+      },
+    };
+  }
+
+  Map<String, dynamic> deleteMapQuery({
+    required String productId,
+  }) {
+    return {
+      'query': r'''
+            mutation DeleteCategory($productId: ID!) {
+              deleteProduct(id: $productId)
+            }
+      ''',
+      'variables': {
+        'productId': productId,
+      },
+    };
+  }
+
+  //Update Product
+  Map<String, dynamic> updateProductMap({
+    required UpdateProductRequestBody body,
+  }) {
+    return {
+      'query': r'''
+            mutation UpdateProduct($productId: ID!, $title: String!,$description: String!,$imageList:[String!]!,$price: Float!,$categoryId: Float! ) {
+          updateProduct(id: $productId, 
+          changes: { 
+            title: $title,
+            categoryId: $categoryId,
+            images:$imageList,
+            description: $description,
+            price:$price
+            }) {
+            title
+          }
+        }
+        ''',
+      'variables': {
+        'productId': body.productId,
+        'title': body.title,
+        'description': body.description,
+        'imageList': body.imageList,
+        'categoryId': body.categoryId,
+        'price': body.price,
+      },
+    };
+  }
+
+
+
 }

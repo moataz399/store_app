@@ -54,6 +54,7 @@ class _LoginTextFormState extends State<LoginTextForm> {
           ),
           verticalSpace(25),
           AppTextFormField(
+
             controller: bloc.passwordController,
             hintText: context.translate(LangKeys.password),
             validator: (value) {

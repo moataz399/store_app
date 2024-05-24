@@ -1,3 +1,5 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,15 +7,15 @@ import 'package:store_app/core/di/dependency_injection.dart';
 import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/helpers/spacing.dart';
 import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/services/push_notification/fcm.dart';
 import 'package:store_app/core/style/colors/colors_dark.dart';
 import 'package:store_app/core/widgets/AdminAppBar.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/categories_cubit/categories_number_cubit.dart';
+import 'package:store_app/features/admin/dashboard/presentation/cubits/products_cubit/admin_products_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/cubits/users_cubit/users_number_cubit.dart';
 import 'package:store_app/features/admin/dashboard/presentation/widgets/admin_container.dart';
-import 'package:store_app/features/admin/products/presentation/cubit/admin_products_cubit.dart';
 
 class DashboardScreen extends StatelessWidget {
-
   const DashboardScreen({super.key});
 
   @override
@@ -21,7 +23,8 @@ class DashboardScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<AdminProductsCubit>()..getProductsNumber(),
+          create: (context) =>
+              getIt<ProductsNumberCubit>()..getProductsNumber(),
         ),
         BlocProvider(
           create: (context) => getIt<CategoriesNumberCubit>()..getCategories(),
@@ -40,7 +43,7 @@ class DashboardScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
           child: Column(
             children: [
-              BlocBuilder<AdminProductsCubit, AdminProductsState>(
+              BlocBuilder<ProductsNumberCubit, AdminProductsState>(
                 builder: (context, state) {
                   return state.when(
                     error: (error) {
@@ -80,8 +83,7 @@ class DashboardScreen extends StatelessWidget {
                       return DashBoardContainer(
                         title: context.translate(LangKeys.categories),
                         number: data.categoriesNumber,
-                        image:
-                            'assets/images/admin/categories_drawer.png',
+                        image: 'assets/images/admin/categories_drawer.png',
                         isLoading: false,
                       );
                     },
@@ -89,8 +91,7 @@ class DashboardScreen extends StatelessWidget {
                       return DashBoardContainer(
                         title: context.translate(LangKeys.categories),
                         number: '0',
-                        image:
-                            'assets/images/admin/categories_drawer.png',
+                        image: 'assets/images/admin/categories_drawer.png',
                         isLoading: true,
                       );
                     },

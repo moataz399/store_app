@@ -20,21 +20,21 @@ mixin _$AdminProductsState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminProductResponse adminProductModel) success,
+    required TResult Function(ProductsNumberResponse adminProductModel) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminProductResponse adminProductModel)? success,
+    TResult? Function(ProductsNumberResponse adminProductModel)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminProductResponse adminProductModel)? success,
+    TResult Function(ProductsNumberResponse adminProductModel)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminProductResponse adminProductModel) success,
+    required TResult Function(ProductsNumberResponse adminProductModel) success,
   }) {
     return loading();
   }
@@ -130,7 +130,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminProductResponse adminProductModel)? success,
+    TResult? Function(ProductsNumberResponse adminProductModel)? success,
   }) {
     return loading?.call();
   }
@@ -140,7 +140,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminProductResponse adminProductModel)? success,
+    TResult Function(ProductsNumberResponse adminProductModel)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -254,7 +254,7 @@ class _$ErrorStateImpl implements ErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminProductResponse adminProductModel) success,
+    required TResult Function(ProductsNumberResponse adminProductModel) success,
   }) {
     return error(this.error);
   }
@@ -264,7 +264,7 @@ class _$ErrorStateImpl implements ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminProductResponse adminProductModel)? success,
+    TResult? Function(ProductsNumberResponse adminProductModel)? success,
   }) {
     return error?.call(this.error);
   }
@@ -274,7 +274,7 @@ class _$ErrorStateImpl implements ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminProductResponse adminProductModel)? success,
+    TResult Function(ProductsNumberResponse adminProductModel)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -333,7 +333,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AdminProductResponse adminProductModel});
+  $Res call({ProductsNumberResponse adminProductModel});
 }
 
 /// @nodoc
@@ -353,7 +353,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       adminProductModel: null == adminProductModel
           ? _value.adminProductModel
           : adminProductModel // ignore: cast_nullable_to_non_nullable
-              as AdminProductResponse,
+              as ProductsNumberResponse,
     ));
   }
 }
@@ -364,7 +364,7 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl({required this.adminProductModel});
 
   @override
-  final AdminProductResponse adminProductModel;
+  final ProductsNumberResponse adminProductModel;
 
   @override
   String toString() {
@@ -394,7 +394,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(String error) error,
-    required TResult Function(AdminProductResponse adminProductModel) success,
+    required TResult Function(ProductsNumberResponse adminProductModel) success,
   }) {
     return success(adminProductModel);
   }
@@ -404,7 +404,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(String error)? error,
-    TResult? Function(AdminProductResponse adminProductModel)? success,
+    TResult? Function(ProductsNumberResponse adminProductModel)? success,
   }) {
     return success?.call(adminProductModel);
   }
@@ -414,7 +414,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(String error)? error,
-    TResult Function(AdminProductResponse adminProductModel)? success,
+    TResult Function(ProductsNumberResponse adminProductModel)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -460,9 +460,10 @@ class _$SuccessImpl implements Success {
 
 abstract class Success implements AdminProductsState {
   const factory Success(
-      {required final AdminProductResponse adminProductModel}) = _$SuccessImpl;
+          {required final ProductsNumberResponse adminProductModel}) =
+      _$SuccessImpl;
 
-  AdminProductResponse get adminProductModel;
+  ProductsNumberResponse get adminProductModel;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;

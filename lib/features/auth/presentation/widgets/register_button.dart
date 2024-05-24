@@ -31,7 +31,7 @@ class RegisterButton extends StatelessWidget {
                 message: context.translate(LangKeys.loggedSuccessfully),
               );
               context.pushNamedAndRemoveUntil(
-                Routes.homeScreen,
+                Routes.mainScreen,
               );
             },
             error: (message) {

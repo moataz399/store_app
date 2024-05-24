@@ -9,9 +9,7 @@ part of 'admin_categories_response.dart';
 AdminCategoriesResponse _$AdminCategoriesResponseFromJson(
         Map<String, dynamic> json) =>
     AdminCategoriesResponse(
-      json['data'] == null
-          ? null
-          : AdminCategoriesData.fromJson(json['data'] as Map<String, dynamic>),
+      AdminCategoriesData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AdminCategoriesResponseToJson(
@@ -22,8 +20,8 @@ Map<String, dynamic> _$AdminCategoriesResponseToJson(
 
 AdminCategoriesData _$AdminCategoriesDataFromJson(Map<String, dynamic> json) =>
     AdminCategoriesData(
-      (json['categories'] as List<dynamic>?)
-          ?.map((e) => AdminCategoriesModel.fromJson(e as Map<String, dynamic>))
+      (json['categories'] as List<dynamic>)
+          .map((e) => AdminCategoriesModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
