@@ -16,8 +16,8 @@ part 'categories_state.dart';
 
 part 'categories_bloc.freezed.dart';
 
-class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
-  CategoriesBloc(this.getCategoriesRepo)
+class AdminCategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
+  AdminCategoriesBloc(this.getCategoriesRepo)
       : super(const CategoriesState.loading()) {
     on<GetCategoriesEvent>(getCategories);
     on<AddCategoryEvent>(addCategory);

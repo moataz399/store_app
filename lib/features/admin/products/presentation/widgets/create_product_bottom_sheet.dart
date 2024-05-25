@@ -152,7 +152,7 @@ class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
               ),
               SizedBox(height: 15.h),
               // Category Drop Down
-              BlocBuilder<CategoriesBloc, CategoriesState>(
+              BlocBuilder<AdminCategoriesBloc, CategoriesState>(
                 builder: (context, state) {
                   return state.maybeWhen(
                     success: (category) {

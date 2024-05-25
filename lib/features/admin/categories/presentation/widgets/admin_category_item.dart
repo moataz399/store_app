@@ -56,14 +56,14 @@ class AdminCategoryItem extends StatelessWidget {
                         CustomBottomSheet.showBottomSheet(
                           whenComplete: (){
 
-                            context.read<CategoriesBloc>().add(const CategoriesEvent.getCategories());
+                            context.read<AdminCategoriesBloc>().add(const CategoriesEvent.getCategories());
                           },
                           context: context,
                           widget: MultiBlocProvider(
 
                             providers: [
                               BlocProvider.value(
-                                value: getIt<CategoriesBloc>(),
+                                value: getIt<AdminCategoriesBloc>(),
                               ),
                               BlocProvider(
                                   create: (context) =>
@@ -80,7 +80,7 @@ class AdminCategoryItem extends StatelessWidget {
                       icon: const Icon(Icons.edit),
                       color: Colors.green,
                     ),
-                    BlocConsumer<CategoriesBloc, CategoriesState>(
+                    BlocConsumer<AdminCategoriesBloc, CategoriesState>(
                       listener: (context, state) {
                         state.whenOrNull(
                           deletedSuccess: (data) {
@@ -104,7 +104,7 @@ class AdminCategoryItem extends StatelessWidget {
                         return IconButton(
                           onPressed: () {
                             context
-                                .read<CategoriesBloc>()
+                                .read<AdminCategoriesBloc>()
                                 .add(CategoriesEvent.deleteCategory(id: id));
                             print('========================${id}');
                           },

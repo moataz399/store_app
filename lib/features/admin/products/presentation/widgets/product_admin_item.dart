@@ -70,7 +70,7 @@ class ProductAdminItem extends StatelessWidget {
                           create: (context) => getIt<UploadImageCubit>(),
                         ),
                         BlocProvider(
-                          create: (context) => getIt<CategoriesBloc>()
+                          create: (context) => getIt<AdminCategoriesBloc>()
                             ..add(
                               const CategoriesEvent.getCategories(),
                             ),
