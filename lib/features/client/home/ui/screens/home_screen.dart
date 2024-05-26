@@ -4,6 +4,8 @@ import 'package:store_app/core/di/dependency_injection.dart';
 import 'package:store_app/features/client/home/ui/blocs/categories_bloc.dart';
 import 'package:store_app/features/client/home/ui/screens/home_body.dart';
 
+import '../blocs/products_bloc/products_bloc.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -16,6 +18,13 @@ class HomeScreen extends StatelessWidget {
             ..add(
               const CategoriesEvent.getAllCategories(),
             ),
+
+        ),BlocProvider(
+          create: (context) => getIt<ProductsBloc>()
+            ..add(
+              const ProductsEvent.getAllProducts(),
+            ),
+
         ),
       ],
       child: const HomeBody(),
