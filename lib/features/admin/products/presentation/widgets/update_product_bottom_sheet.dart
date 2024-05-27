@@ -180,7 +180,7 @@ class _UpdateProductBottomSheetState extends State<UpdateProductBottomSheet> {
               ),
               SizedBox(height: 15.h),
               // Category Drop Doown
-              BlocBuilder<CategoriesBloc, CategoriesState>(
+              BlocBuilder<AdminCategoriesBloc, CategoriesState>(
                 builder: (context, state) {
                   return state.maybeWhen(
                     success: (category) {

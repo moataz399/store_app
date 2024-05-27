@@ -19,7 +19,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<CategoriesBloc>()
+      create: (context) => getIt<AdminCategoriesBloc>()
         ..add(
           const CategoriesEvent.getCategories(),
         ),
@@ -28,7 +28,7 @@ class CategoriesScreen extends StatelessWidget {
           onPressed: () {
             CustomBottomSheet.showBottomSheet(
               whenComplete: () {
-                context.read<CategoriesBloc>().add(
+                context.read<AdminCategoriesBloc>().add(
                       const CategoriesEvent.getCategories(),
                     );
               },
@@ -36,7 +36,7 @@ class CategoriesScreen extends StatelessWidget {
               widget: MultiBlocProvider(providers: [
                 BlocProvider(create: (context) => getIt<UploadImageCubit>()),
                 BlocProvider.value(
-                  value: getIt<CategoriesBloc>(),
+                  value: getIt<AdminCategoriesBloc>(),
                 ),
               ], child: const AddCategoryBottomSheetWidget()),
             );
@@ -66,7 +66,7 @@ class CategoriesScreen extends StatelessWidget {
                         child: verticalSpace(20),
                       ),
                       SliverToBoxAdapter(
-                        child: BlocBuilder<CategoriesBloc, CategoriesState>(
+                        child: BlocBuilder<AdminCategoriesBloc, CategoriesState>(
                           builder: (context, state) => state.maybeWhen(
                             loading: () {
                               return const Center(

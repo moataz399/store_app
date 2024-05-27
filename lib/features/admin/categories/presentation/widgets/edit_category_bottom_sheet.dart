@@ -100,7 +100,7 @@ class _EditCategoryBottomSheetWidgetState
               },
             ),
             verticalSpace(20),
-            BlocConsumer<CategoriesBloc, CategoriesState>(
+            BlocConsumer<AdminCategoriesBloc, CategoriesState>(
               builder: (context, state) {
                 return state.maybeWhen(orElse: () {
                   return CustomButton(
@@ -145,7 +145,7 @@ class _EditCategoryBottomSheetWidgetState
   void _validUpdateCategory(BuildContext context) {
     print(widget.id + "//=================*//////////////");
     if (formKey.currentState!.validate()) {
-      context.read<CategoriesBloc>().add(
+      context.read<AdminCategoriesBloc>().add(
             CategoriesEvent.editCategory(
               body: EditCategoryRequestBody(
                 id: widget.id,

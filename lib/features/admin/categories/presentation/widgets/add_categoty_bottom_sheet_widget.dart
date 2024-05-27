@@ -19,11 +19,11 @@ class AddCategoryBottomSheetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bloc = context.read<CategoriesBloc>();
+    var bloc = context.read<AdminCategoriesBloc>();
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.h),
       child: Form(
-        key: context.read<CategoriesBloc>().formKey,
+        key: context.read<AdminCategoriesBloc>().formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -98,7 +98,7 @@ class AddCategoryBottomSheetWidget extends StatelessWidget {
               },
             ),
             verticalSpace(20),
-            BlocConsumer<CategoriesBloc, CategoriesState>(
+            BlocConsumer<AdminCategoriesBloc, CategoriesState>(
               listener: (context, state) {
                 state.whenOrNull(addedError: (message) {
                   ShowToast.showToastErrorTop(
@@ -123,7 +123,7 @@ class AddCategoryBottomSheetWidget extends StatelessWidget {
                     }
                     if (bloc.formKey.currentState!.validate() &&
                         context.read<UploadImageCubit>().imageUrl.isNotEmpty) {
-                      context.read<CategoriesBloc>().add(
+                      context.read<AdminCategoriesBloc>().add(
                             CategoriesEvent.addCategory(
                               imageUrl:
                                   context.read<UploadImageCubit>().imageUrl,

@@ -30,6 +30,10 @@ import 'package:store_app/features/admin/users/presentation/bloc/users_bloc.dart
 import 'package:store_app/features/auth/data/data_source/auth_data_source.dart';
 import 'package:store_app/features/auth/data/repos/auth_repo.dart';
 import 'package:store_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:store_app/features/client/home/data/data_source/home_data_source.dart';
+import 'package:store_app/features/client/home/data/repos/home_repo.dart';
+import 'package:store_app/features/client/home/ui/blocs/categories_bloc.dart';
+import 'package:store_app/features/client/home/ui/blocs/products_bloc/products_bloc.dart';
 import 'package:store_app/features/client/main/ui/cubit/main_cubit.dart';
 import 'package:store_app/features/client/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/client/profile/data/repos/profile_repo.dart';
@@ -91,7 +95,7 @@ Future<void> setUpGetIt() async {
     ..registerLazySingleton<GetCategoriesDataSource>(
       () => GetCategoriesDataSource(getIt()),
     )
-    ..registerFactory<CategoriesBloc>(() => CategoriesBloc(getIt()))
+    ..registerFactory<AdminCategoriesBloc>(() => AdminCategoriesBloc(getIt()))
 
     //products
     ..registerLazySingleton<AdminProductsDataSource>(
@@ -138,5 +142,12 @@ Future<void> setUpGetIt() async {
     )
     ..registerFactory<ProfileBloc>(() => ProfileBloc(getIt<ProfileRepo>()))
     //customer
-    ..registerFactory<MainCubit>(MainCubit.new);
+    ..registerFactory<MainCubit>(MainCubit.new)
+    //categories
+    ..registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()))
+    ..registerLazySingleton<HomeDataSource>(
+      () => HomeDataSource(getIt<ApiService>()),
+    )
+    ..registerFactory<CategoriesBloc>(() => CategoriesBloc(getIt()))
+    ..registerFactory<ProductsBloc>(() => ProductsBloc(getIt()));
 }
