@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/helpers/string_extension.dart';
+import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/widgets/custom_linear_container_customer.dart';
 import 'package:store_app/core/widgets/text_app.dart';
@@ -28,7 +29,7 @@ class CustomProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //   context.pushName(AppRoutes.productDetails, arguments: productId);
+       context.pushNamed(Routes.productDetails, arguments: productId);
       },
       child: CustomContainerLinearCustomer(
         height: 250.h,
@@ -37,7 +38,7 @@ class CustomProductItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Buttons
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Share Button

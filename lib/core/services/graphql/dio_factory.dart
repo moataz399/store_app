@@ -51,7 +51,7 @@ class DioFactory {
           return handler.next(options);
         },
         onError: (e, handler) async {
-          if (e.response?.statusCode == 400 || e.response?.statusCode == 401) {
+          if (e.response?.statusCode == 401) {
             debugPrint(
               '[ERROR] ${e.message} ${e.response?.statusCode} ${e.response?.data}',
             );
