@@ -1,10 +1,7 @@
 import 'package:store_app/features/admin/categories/data/models/add_category_request_body.dart';
-import 'package:store_app/features/admin/categories/data/models/admin_categories_response.dart';
 import 'package:store_app/features/admin/categories/data/models/edit_category_request_body.dart';
 import 'package:store_app/features/admin/products/data/models/create_product_request_body.dart';
 import 'package:store_app/features/admin/products/data/models/update_product_request_body.dart';
-import 'package:store_app/features/auth/data/models/login_request_body.dart';
-import 'package:store_app/features/auth/data/models/register_request_body.dart';
 
 class AdminQueries {
   factory AdminQueries() {
@@ -147,6 +144,7 @@ class AdminQueries {
     };
   }
 
+
   Map<String, dynamic> allProducts() {
     return {
       'query': '''
@@ -165,6 +163,9 @@ class AdminQueries {
           }
      ''',
     };
+
+
+
   }
 
 
@@ -252,6 +253,42 @@ class AdminQueries {
     };
   }
 
-
+  Map<String, dynamic> getProductDetailsMapQuery({required int id}) {
+    return {
+      'query': '''
+           {
+          product(id: $id) {
+            id
+            title
+            price
+            images
+            description
+              category{
+                name
+                }
+          }
+        },
+  
+      ''',
+    };
+  }  Map<String, dynamic> getProductsByCategory({required int categoryId}) {
+    return {
+      'query': '''
+           {
+          products(categoryId: $categoryId) {
+            id
+            title
+            price
+            images
+            description
+              category{
+                name
+                }
+          }
+        },
+  
+      ''',
+    };
+  }
 
 }

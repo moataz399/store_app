@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helpers/extensions.dart';
+import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/widgets/EmptyScreen.dart';
 import 'package:store_app/core/widgets/custom_button.dart';
 import 'package:store_app/features/client/home/ui/blocs/categories_bloc.dart';
@@ -33,9 +34,9 @@ class HomeBody extends StatelessWidget {
                   loading: () {
                     return const CategoriesShimmer();
                   },
-                  success: (categoreisList) {
+                  success: (categoriesList) {
                     return CategoriesList(
-                      list: categoreisList,
+                      list: categoriesList,
                     );
                   },
                   empty: () {
@@ -87,7 +88,7 @@ class HomeBody extends StatelessWidget {
                       textColor: Colors.black,
                       text: context.translate(LangKeys.viewAll),
                       onPressed: () {
-                        //context.pushName(AppRoutes.productsViewAll);
+                        context.pushNamed(Routes.productsViewAll);
                       },
                     ),
                   );
