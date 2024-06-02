@@ -7,7 +7,7 @@ class CategoryDataSource {
 
   final ApiService apiService;
 
-  Future<AdminProductsResponse> getProductsByCategory(
+  Future<ProductsResponse> getProductsByCategory(
       {required int categoryId,}) async {
     final response = await apiService.productsByCategory(
         AdminQueries().getProductsByCategory(categoryId: categoryId));

@@ -7,7 +7,7 @@ class CategoryRepo {
 
   final CategoryDataSource _dataSource;
 
-  Future<ApiResult<AdminProductsResponse>> getProductsByCategory(
+  Future<ApiResult<ProductsResponse>> getProductsByCategory(
       {required int categoryId,}) async {
     try {
       final response = await _dataSource.getProductsByCategory(categoryId: categoryId);

@@ -4,7 +4,7 @@ part of 'category_bloc.dart';
 class CategoryState with _$CategoryState {
   const factory CategoryState.loading() = LoadingState;
   const factory CategoryState.success({
-    required List<AdminProductsModel> productsList,
+    required List<ProductsModel> productsList,
   }) = SuccessState;
   const factory CategoryState.empty() = EmptyState;
   const factory CategoryState.error({required String error}) = ErrorState;

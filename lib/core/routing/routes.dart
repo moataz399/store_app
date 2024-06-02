@@ -12,6 +12,7 @@ class Routes{
   static const String productDetails = '/productDetails';
   static const String categoryScreen = '/categoryScreen';
   static const String productsViewAll = '/productsViewAll';
+  static const String search = '/search';
 
 
 }

@@ -4,7 +4,7 @@ sealed class ViewAllProductsState extends Equatable {
   const ViewAllProductsState(
       {required this.productsList, required this.hasMoreData});
 
-  final List<AdminProductsModel> productsList;
+  final List<ProductsModel> productsList;
   final bool hasMoreData;
 }
 

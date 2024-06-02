@@ -18,7 +18,7 @@ class HomeRepo {
     }
   }
 
-  Future<ApiResult<AdminProductsResponse>> getAllProducts() async {
+  Future<ApiResult<ProductsResponse>> getAllProducts() async {
     try {
       final response = await dataSource.getAllProducts();
       return ApiResult.success(response);

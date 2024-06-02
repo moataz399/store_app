@@ -11,6 +11,7 @@ import 'package:store_app/features/auth/presentation/screens/register_screen.dar
 import 'package:store_app/features/client/category/ui/screens/category_screen.dart';
 import 'package:store_app/features/client/main/ui/screen/main_screen.dart';
 import 'package:store_app/features/client/product_details/ui/screens/product_details_screen.dart';
+import 'package:store_app/features/client/search/ui/screens/search_screen.dart';
 import 'package:store_app/features/client/view_all_products/ui/bloc/view_all_products_bloc.dart';
 import 'package:store_app/features/client/view_all_products/ui/screens/view_all_products_screen.dart';
 
@@ -60,6 +61,10 @@ class AppRouter {
       case Routes.productsViewAll:
         return MaterialPageRoute(
           builder: (_) => const ViewAllProductsScreen(),
+        );
+      case Routes.search:
+        return MaterialPageRoute(
+          builder: (_) => const SearchScreen(),
         );
 
       default:

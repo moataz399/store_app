@@ -10,7 +10,7 @@ class AdminProductsRepo {
 
   final AdminProductsDataSource adminProductsDataSource;
 
-  Future<ApiResult<AdminProductsResponse>> getAllProducts() async {
+  Future<ApiResult<ProductsResponse>> getAllProducts() async {
     try {
       final response = await adminProductsDataSource.getAllProducts();
       return ApiResult.success(response);

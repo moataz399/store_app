@@ -6,7 +6,7 @@ class AdminProductsState with _$AdminProductsState {
   const factory AdminProductsState.loading() = Loading;
 
   const factory AdminProductsState.success({
-    required List<AdminProductsModel> productList,
+    required List<ProductsModel> productList,
   }) = SuccessState;
 
   const factory AdminProductsState.empty() = EmptyState;

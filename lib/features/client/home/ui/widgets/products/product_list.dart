@@ -9,7 +9,7 @@ class ProductsList extends StatelessWidget {
     super.key,
   });
 
-  final List<AdminProductsModel> productList;
+  final List<ProductsModel> productList;
 
   @override
   Widget build(BuildContext context) {

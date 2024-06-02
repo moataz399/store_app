@@ -6,14 +6,12 @@ part of 'admin_products_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AdminProductsResponse _$AdminProductsResponseFromJson(
-        Map<String, dynamic> json) =>
-    AdminProductsResponse(
+ProductsResponse _$ProductsResponseFromJson(Map<String, dynamic> json) =>
+    ProductsResponse(
       AdminProductsData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AdminProductsResponseToJson(
-        AdminProductsResponse instance) =>
+Map<String, dynamic> _$ProductsResponseToJson(ProductsResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -21,7 +19,7 @@ Map<String, dynamic> _$AdminProductsResponseToJson(
 AdminProductsData _$AdminProductsDataFromJson(Map<String, dynamic> json) =>
     AdminProductsData(
       (json['products'] as List<dynamic>)
-          .map((e) => AdminProductsModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => ProductsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -30,8 +28,8 @@ Map<String, dynamic> _$AdminProductsDataToJson(AdminProductsData instance) =>
       'products': instance.products,
     };
 
-AdminProductsModel _$AdminProductsModelFromJson(Map<String, dynamic> json) =>
-    AdminProductsModel(
+ProductsModel _$ProductsModelFromJson(Map<String, dynamic> json) =>
+    ProductsModel(
       id: json['id'] as String?,
       title: json['title'] as String?,
       description: json['description'] as String?,
@@ -43,7 +41,7 @@ AdminProductsModel _$AdminProductsModelFromJson(Map<String, dynamic> json) =>
           : CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AdminProductsModelToJson(AdminProductsModel instance) =>
+Map<String, dynamic> _$ProductsModelToJson(ProductsModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

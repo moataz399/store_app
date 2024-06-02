@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:store_app/core/animations/animate_do.dart';
 import 'package:store_app/core/helpers/extensions.dart';
 import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/style/fonts/Font_weight_helper.dart';
 import 'package:store_app/core/style/images/app_Images.dart';
 import 'package:store_app/core/utils/enums.dart';
@@ -46,7 +46,7 @@ class MainCustomerAppBar extends StatelessWidget
                   duration: 800,
                   child: CustomLinearButton(
                     onPressed: () {
-//  context.pushName(Routes.search);
+                      context.pushNamed(Routes.search);
                     },
                     child: Center(
                       child: SvgPicture.asset(AppImages.search),

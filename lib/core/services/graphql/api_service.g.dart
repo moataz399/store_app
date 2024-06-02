@@ -330,15 +330,14 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<AdminProductsResponse> getAllProducts(
-      Map<String, dynamic> mutation) async {
+  Future<ProductsResponse> getAllProducts(Map<String, dynamic> mutation) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mutation);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AdminProductsResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ProductsResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -354,7 +353,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AdminProductsResponse.fromJson(_result.data!);
+    final value = ProductsResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -516,15 +515,15 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<AdminProductsResponse> productsByCategory(
+  Future<ProductsResponse> productsByCategory(
       Map<String, dynamic> query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(query);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AdminProductsResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ProductsResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -540,20 +539,19 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AdminProductsResponse.fromJson(_result.data!);
+    final value = ProductsResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<AdminProductsResponse> viewAllProducts(
-      Map<String, dynamic> query) async {
+  Future<ProductsResponse> viewAllProducts(Map<String, dynamic> query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(query);
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AdminProductsResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ProductsResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -569,7 +567,35 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AdminProductsResponse.fromJson(_result.data!);
+    final value = ProductsResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ProductsResponse> searchProducts(Map<String, dynamic> query) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(query);
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ProductsResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ProductsResponse.fromJson(_result.data!);
     return value;
   }
 

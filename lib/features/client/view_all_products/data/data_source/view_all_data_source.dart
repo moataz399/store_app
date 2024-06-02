@@ -7,7 +7,7 @@ class ViewAllProductsDataSource {
 
   final ApiService apiService;
 
-  Future<AdminProductsResponse> getViewAllProducts({
+  Future<ProductsResponse> getViewAllProducts({
     required int offset,
   }) async {
     final response = await apiService.viewAllProducts(

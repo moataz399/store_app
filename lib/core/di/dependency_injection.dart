@@ -46,6 +46,9 @@ import 'package:store_app/features/client/product_details/ui/bloc/product_detail
 import 'package:store_app/features/client/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/client/profile/data/repos/profile_repo.dart';
 import 'package:store_app/features/client/profile/ui/bloc/profile_bloc.dart';
+import 'package:store_app/features/client/search/data/data_source/search_data_source.dart';
+import 'package:store_app/features/client/search/data/repo/search_repo.dart';
+import 'package:store_app/features/client/search/ui/bloc/search_bloc.dart';
 import 'package:store_app/features/client/view_all_products/data/data_source/view_all_data_source.dart';
 import 'package:store_app/features/client/view_all_products/data/repo/view_all_products_repo.dart';
 import 'package:store_app/features/client/view_all_products/ui/bloc/view_all_products_bloc.dart';
@@ -75,6 +78,14 @@ Future<void> setUpGetIt() async {
       () => ViewAllProductsDataSource(getIt<ApiService>()),
     )
     ..registerFactory<ViewAllProductsBloc>(() => ViewAllProductsBloc(getIt()))
+
+//search
+
+    ..registerLazySingleton<SearchRepo>(() => SearchRepo(getIt()))
+    ..registerLazySingleton<SearchDataSource>(
+      () => SearchDataSource(getIt<ApiService>()),
+    )
+    ..registerFactory<SearchBloc>(() => SearchBloc(getIt()))
 
     //category
 

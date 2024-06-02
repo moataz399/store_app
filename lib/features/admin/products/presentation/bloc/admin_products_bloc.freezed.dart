@@ -317,7 +317,7 @@ mixin _$AdminProductsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<AdminProductsModel> productList) success,
+    required TResult Function(List<ProductsModel> productList) success,
     required TResult Function() empty,
     required TResult Function(String error) error,
   }) =>
@@ -325,7 +325,7 @@ mixin _$AdminProductsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<AdminProductsModel> productList)? success,
+    TResult? Function(List<ProductsModel> productList)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? error,
   }) =>
@@ -333,7 +333,7 @@ mixin _$AdminProductsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<AdminProductsModel> productList)? success,
+    TResult Function(List<ProductsModel> productList)? success,
     TResult Function()? empty,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -423,7 +423,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<AdminProductsModel> productList) success,
+    required TResult Function(List<ProductsModel> productList) success,
     required TResult Function() empty,
     required TResult Function(String error) error,
   }) {
@@ -434,7 +434,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<AdminProductsModel> productList)? success,
+    TResult? Function(List<ProductsModel> productList)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? error,
   }) {
@@ -445,7 +445,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<AdminProductsModel> productList)? success,
+    TResult Function(List<ProductsModel> productList)? success,
     TResult Function()? empty,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -504,7 +504,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
           _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
       __$$SuccessStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<AdminProductsModel> productList});
+  $Res call({List<ProductsModel> productList});
 }
 
 /// @nodoc
@@ -524,7 +524,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
       productList: null == productList
           ? _value._productList
           : productList // ignore: cast_nullable_to_non_nullable
-              as List<AdminProductsModel>,
+              as List<ProductsModel>,
     ));
   }
 }
@@ -532,13 +532,12 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessStateImpl implements SuccessState {
-  const _$SuccessStateImpl(
-      {required final List<AdminProductsModel> productList})
+  const _$SuccessStateImpl({required final List<ProductsModel> productList})
       : _productList = productList;
 
-  final List<AdminProductsModel> _productList;
+  final List<ProductsModel> _productList;
   @override
-  List<AdminProductsModel> get productList {
+  List<ProductsModel> get productList {
     if (_productList is EqualUnmodifiableListView) return _productList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_productList);
@@ -572,7 +571,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<AdminProductsModel> productList) success,
+    required TResult Function(List<ProductsModel> productList) success,
     required TResult Function() empty,
     required TResult Function(String error) error,
   }) {
@@ -583,7 +582,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<AdminProductsModel> productList)? success,
+    TResult? Function(List<ProductsModel> productList)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? error,
   }) {
@@ -594,7 +593,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<AdminProductsModel> productList)? success,
+    TResult Function(List<ProductsModel> productList)? success,
     TResult Function()? empty,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -644,11 +643,10 @@ class _$SuccessStateImpl implements SuccessState {
 }
 
 abstract class SuccessState implements AdminProductsState {
-  const factory SuccessState(
-          {required final List<AdminProductsModel> productList}) =
+  const factory SuccessState({required final List<ProductsModel> productList}) =
       _$SuccessStateImpl;
 
-  List<AdminProductsModel> get productList;
+  List<ProductsModel> get productList;
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -693,7 +691,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<AdminProductsModel> productList) success,
+    required TResult Function(List<ProductsModel> productList) success,
     required TResult Function() empty,
     required TResult Function(String error) error,
   }) {
@@ -704,7 +702,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<AdminProductsModel> productList)? success,
+    TResult? Function(List<ProductsModel> productList)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? error,
   }) {
@@ -715,7 +713,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<AdminProductsModel> productList)? success,
+    TResult Function(List<ProductsModel> productList)? success,
     TResult Function()? empty,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -833,7 +831,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<AdminProductsModel> productList) success,
+    required TResult Function(List<ProductsModel> productList) success,
     required TResult Function() empty,
     required TResult Function(String error) error,
   }) {
@@ -844,7 +842,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<AdminProductsModel> productList)? success,
+    TResult? Function(List<ProductsModel> productList)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? error,
   }) {
@@ -855,7 +853,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<AdminProductsModel> productList)? success,
+    TResult Function(List<ProductsModel> productList)? success,
     TResult Function()? empty,
     TResult Function(String error)? error,
     required TResult orElse(),

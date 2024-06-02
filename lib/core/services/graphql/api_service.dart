@@ -75,7 +75,7 @@ abstract class ApiService {
 
   //products
   @POST(graphql)
-  Future<AdminProductsResponse> getAllProducts(
+  Future<ProductsResponse> getAllProducts(
     @Body() Map<String, dynamic> mutation,
   );
 
@@ -112,12 +112,15 @@ abstract class ApiService {
   );
 
   @POST(graphql)
-  Future<AdminProductsResponse> productsByCategory(
+  Future<ProductsResponse> productsByCategory(
     @Body() Map<String, dynamic> query,
   );
 
   @POST(graphql)
-  Future<AdminProductsResponse> viewAllProducts(
+  Future<ProductsResponse> viewAllProducts(
+    @Body() Map<String, dynamic> query,
+  );@POST(graphql)
+  Future<ProductsResponse> searchProducts(
     @Body() Map<String, dynamic> query,
   );
 }
